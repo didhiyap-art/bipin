@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="gu"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>હાજરી પત્રક · EasyTech™ Pro</title>
+<meta name="description" content="શાળા હાજરી પત્રક – બાલવાટિકા થી ધોરણ ૮: વર્ષ/મહિના મુજબ હાજરી, જાતવારી તારીજ, વિજેતા પત્રક, PDF અને Excel. EasyTech™">
+<meta name="theme-color" content="#0b1f4d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600;700;800&family=Noto+Sans+Gujarati:wght@400;500;600;700;800&family=Noto+Serif+Gujarati:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2fb;--bg2:#e4eaf8;--card:#fff;--tx:#14203d;--mut:#62708f;--pri:#2348c9;--pri2:#5b7cff;--acc:#ff8a1f;--bd:#dce3f2;--sb1:#0a1840;--sb2:#163a96;--sbt:#d9e3ff;--ok:#0e9f6e;--bad:#e0344b;--warn:#e38b00;--fz:15px;--r:18px;--sh:0 10px 30px -12px #0b1f4d33,0 2px 6px -2px #0b1f4d14}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{font-family:'Noto Sans Gujarati',system-ui,sans-serif;font-size:var(--fz);background:var(--bg);color:var(--tx);display:flex;overflow:hidden;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(900px 500px at 85% -10%,color-mix(in srgb,var(--pri2) 18%,transparent),transparent 60%),radial-gradient(700px 500px at 10% 110%,color-mix(in srgb,var(--acc) 12%,transparent),transparent 60%);pointer-events:none;z-index:0}
+button,input,select,textarea{font:inherit;color:inherit}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#8892b055;border-radius:9px;border:2px solid transparent;background-clip:padding-box}
+.logo .orb{transform-origin:50% 50%;animation:spin 10s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+/* splash */
+#splash{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(circle at 50% 40%,var(--sb2),var(--sb1));color:#fff;transition:opacity .6s,visibility .6s}
+#splash.hide{opacity:0;visibility:hidden}
+#splash .bn{font-family:'Baloo Bhai 2';font-size:46px;font-weight:800;animation:up .8s .15s both}#splash .bn i{font-style:normal;color:var(--acc)}
+#splash small{opacity:.8;animation:up .8s .35s both;letter-spacing:.4px}
+#splash .ld{width:170px;height:4px;border-radius:9px;background:#ffffff26;overflow:hidden}#splash .ld i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--acc),#ffd36b);border-radius:9px;animation:ld 1s infinite}
+@keyframes ld{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+/* sidebar */
+aside{width:286px;flex:none;background:linear-gradient(170deg,var(--sb1),var(--sb2));color:var(--sbt);display:flex;flex-direction:column;overflow:auto;position:relative;z-index:30;transition:transform .35s}
+aside:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 120% -10%,#ffffff22,transparent 45%),radial-gradient(circle at -30% 110%,#ffffff14,transparent 45%);pointer-events:none}
+.brand{display:flex;gap:12px;align-items:center;padding:18px 16px 10px;position:relative}
+.brand b{font-family:'Baloo Bhai 2';font-size:26px;line-height:1;color:#fff;display:block}.brand b i{font-style:normal;color:var(--acc)}
+.brand sup{font-size:10px;background:linear-gradient(90deg,var(--acc),#ffd36b);color:#2a1500;padding:2px 6px;border-radius:6px;margin-left:5px;font-family:'Noto Sans Gujarati';font-weight:800;vertical-align:7px}
+.brand small{font-size:11px;opacity:.75;letter-spacing:.3px}
+.schoolchip{margin:4px 14px 10px;padding:10px 12px;border-radius:14px;background:#ffffff14;border:1px solid #ffffff22;font-size:12.5px;position:relative;cursor:pointer;transition:.2s}
+.schoolchip:hover{background:#ffffff22}.schoolchip b{display:block;color:#fff;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav{padding:2px 10px;position:relative}
+.navsep{font-size:10.5px;letter-spacing:1px;opacity:.55;margin:14px 14px 5px;text-transform:uppercase;font-weight:700}
+.nv{display:flex;gap:11px;align-items:center;width:100%;text-align:left;background:none;border:0;color:inherit;padding:9px 11px;border-radius:12px;cursor:pointer;font-size:14.5px;transition:.2s;margin-bottom:2px;position:relative}
+.nv .ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#ffffff12;font-size:16px;flex:none;transition:.2s}
+.nv:hover{background:#ffffff12;transform:translateX(3px)}
+.nv.on{background:#fff;color:var(--sb1);font-weight:700;box-shadow:0 8px 22px #0005}.nv.on .ic{background:linear-gradient(135deg,var(--acc),#ffb35c);color:#fff}
+.nv .nb{margin-left:auto;background:var(--bad);color:#fff;border-radius:99px;font-size:11px;padding:1px 7px;font-weight:800}.nv .nb:empty{display:none}
+.dev{margin:auto 14px 14px;padding:14px;border-radius:18px;background:linear-gradient(135deg,#ffffff1f,#ffffff08);border:1px solid #ffffff24;position:relative}
+.dev .av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#2a1500;background:linear-gradient(135deg,var(--acc),#ffd36b);float:left;margin-right:10px;font-family:'Baloo Bhai 2';font-size:18px;box-shadow:0 0 0 3px #ffffff30}
+.dev b{color:#fff;display:block;font-size:14px}.dev small{font-size:11.5px;opacity:.8}
+.dev .row2{display:grid;grid-template-columns:1fr 1fr;gap:6px;clear:both;padding-top:10px}
+.sbtn{text-align:center;text-decoration:none;font-size:12px;font-weight:700;padding:7px 4px;border-radius:10px;background:#ffffff1a;color:#fff;transition:.2s;border:0;cursor:pointer}
+.sbtn:hover{background:var(--acc);color:#2a1500}.sbtn.wa{background:#1faa55}
+/* main */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative;z-index:1}
+.topbar{display:flex;align-items:center;gap:10px;padding:10px 20px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);position:relative;z-index:6}
+.hb{display:none;border:0;background:var(--bg);border-radius:12px;width:42px;height:42px;font-size:20px;cursor:pointer}
+.crumb{flex:1;min-width:0}.crumb small{color:var(--mut);font-size:12px;display:block}.crumb b{font-size:19px;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;font-weight:800}
+.ctx{display:flex;gap:8px;align-items:center}
+.ctx select{border:1px solid var(--bd);background:var(--card);border-radius:12px;padding:8px 10px;font-weight:600;font-size:13.5px;max-width:150px}
+.tbtn{border:1px solid var(--bd);background:var(--card);border-radius:12px;padding:8px 12px;cursor:pointer;font-size:13.5px;font-weight:700;display:flex;gap:6px;align-items:center;transition:.2s;white-space:nowrap}
+.tbtn:hover{border-color:var(--pri);color:var(--pri);transform:translateY(-1px)}
+.sv{font-size:12px;color:var(--ok);white-space:nowrap}
+.ticker{background:linear-gradient(90deg,var(--sb1),var(--sb2));color:#fff;overflow:hidden;white-space:nowrap;font-size:12.5px;padding:5px 0;position:relative;z-index:5}
+.ticker div{display:inline-block;animation:tk 50s linear infinite}.ticker span{margin:0 26px}.ticker b{color:var(--acc)}
+@keyframes tk{to{transform:translateX(-50%)}}
+.palette{position:absolute;right:20px;top:64px;background:var(--card);border:1px solid var(--bd);border-radius:18px;box-shadow:0 24px 60px #0003;padding:12px;display:none;grid-template-columns:repeat(4,1fr);gap:8px;width:330px;z-index:50}
+.palette.on{display:grid;animation:pop .2s}
+.sw{border:2px solid transparent;border-radius:12px;padding:6px 4px;cursor:pointer;background:none;font-size:11px;text-align:center;color:var(--tx)}
+.sw i{display:block;height:32px;border-radius:9px;margin-bottom:4px}.sw.on{border-color:var(--pri)}
+main{flex:1;overflow:auto;padding:22px 24px 10px;scroll-behavior:smooth}
+.view{display:none;max-width:1240px;margin:0 auto}.view.on{display:block;animation:up .45s cubic-bezier(.2,.8,.2,1)}
+/* components */
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:20px;margin-bottom:18px;box-shadow:var(--sh)}
+.card>h2{margin:0 0 4px;font-size:18.5px;display:flex;align-items:center;gap:8px;font-weight:800}
+.card>.sub{color:var(--mut);font-size:13.5px;margin:0 0 14px}
+.hero{background:linear-gradient(125deg,var(--sb1),var(--sb2) 55%,var(--pri));color:#fff;border:0;position:relative;overflow:hidden;padding:28px 30px}
+.hero:after{content:"";position:absolute;right:-80px;top:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,var(--acc) 0,transparent 68%);opacity:.38}
+.hero:before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 39.5h40M39.5 0v40' stroke='%23ffffff' stroke-opacity='.06'/%3E%3C/svg%3E")}
+.hero h1{font-family:'Baloo Bhai 2';font-size:clamp(25px,3.6vw,38px);line-height:1.15;margin:0 0 8px;position:relative;z-index:1}
+.hero p{opacity:.9;max-width:720px;margin:0 0 18px;position:relative;z-index:1}
+.hero .row{position:relative;z-index:1}
+.row{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.btn{border:0;cursor:pointer;font-weight:700;font-size:14px;padding:10px 16px;border-radius:12px;display:inline-flex;align-items:center;gap:7px;text-decoration:none;transition:.2s;background:var(--pri);color:#fff;white-space:nowrap;box-shadow:0 6px 16px -6px color-mix(in srgb,var(--pri) 70%,transparent)}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.acc{background:var(--acc);color:#2a1500;box-shadow:0 6px 16px -6px #ff8a1f99}.btn.wa{background:#1faa55}.btn.gh{background:var(--card);color:var(--pri);border:1px solid var(--bd);box-shadow:none}.btn.wh{background:#ffffff1f;color:#fff;border:1px solid #ffffff44;box-shadow:none}.btn.rd{background:var(--bad)}.btn.ok{background:var(--ok)}
+.btn.sm{padding:7px 11px;font-size:13px;border-radius:10px}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;position:relative;overflow:hidden;box-shadow:var(--sh);animation:up .5s both}
+.kpi .ic{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:19px;background:color-mix(in srgb,var(--pri) 12%,transparent)}
+.kpi .k{font-size:30px;font-weight:800;line-height:1.1;font-family:'Baloo Bhai 2'}
+.kpi small{color:var(--mut);font-size:13px}.kpi .d{font-size:12px;margin-top:4px;font-weight:700}
+.kpi.ok .k{color:var(--ok)}.kpi.bad .k{color:var(--bad)}.kpi.pri .k{color:var(--pri)}
+.bar{height:8px;background:var(--bd);border-radius:9px;overflow:hidden;margin-top:8px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pri2),var(--ok));transition:width .7s}
+.feat{display:flex;gap:12px;padding:14px;border-radius:16px;background:var(--bg);border:1px solid var(--bd);transition:.25s}
+.feat:hover{transform:translateY(-3px);border-color:var(--pri);box-shadow:var(--sh)}
+.feat .fi{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-size:21px;flex:none;background:linear-gradient(135deg,var(--pri),var(--sb2));color:#fff}
+.feat b{display:block;font-size:14.5px}.feat small{color:var(--mut);font-size:12.8px;line-height:1.55;display:block}
+.qa{cursor:pointer;text-align:left;border:1px solid var(--bd);background:var(--card);border-radius:var(--r);padding:16px;transition:.25s;box-shadow:var(--sh)}
+.qa:hover{transform:translateY(-4px);border-color:var(--acc)}.qa .e{font-size:26px}.qa b{display:block;margin-top:4px}.qa small{color:var(--mut)}
+.fg{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.f{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--mut);min-width:0}
+.f>span{font-weight:700}.f>span em{color:var(--bad);font-style:normal}
+.f input,.f select,.f textarea{font-size:14.5px;padding:10px 12px;border:1.5px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);transition:.2s;min-width:0;width:100%}
+.f textarea{resize:vertical;min-height:70px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--pri);box-shadow:0 0 0 4px color-mix(in srgb,var(--pri) 16%,transparent);background:var(--card)}
+.f.wide{grid-column:1/-1}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1.5px solid var(--bd);background:var(--bg);border-radius:10px;padding:8px 13px;cursor:pointer;font-size:13.5px;transition:.2s}
+.seg button.on{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{border:1px solid var(--bd);background:var(--card);border-radius:99px;padding:6px 13px;cursor:pointer;font-size:13px;transition:.2s}
+.chip:hover{border-color:var(--pri);color:var(--pri)}.chip.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tag{display:inline-block;border-radius:99px;padding:2px 10px;font-size:12px;font-weight:700;color:#fff;background:var(--mut)}.tag.ok{background:var(--ok)}.tag.bad{background:var(--bad)}.tag.warn{background:var(--warn)}.tag.pri{background:var(--pri)}
+.info{padding:11px 14px;border-radius:12px;background:color-mix(in srgb,var(--pri) 8%,var(--card));border-left:4px solid var(--pri);font-size:13.5px;margin:4px 0 14px}
+.iss{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border-radius:12px;margin-bottom:8px;background:var(--bg);font-size:14px;border-left:4px solid var(--bd);transition:.2s}
+.iss.j{cursor:pointer}.iss.j:hover{transform:translateX(4px)}
+.iss.bad{border-color:var(--bad)}.iss.warn{border-color:var(--warn)}.iss.info{border-color:var(--pri)}.iss.ok{border-color:var(--ok)}
+.iss .go{margin-left:auto;color:var(--mut);font-size:12px;white-space:nowrap}
+.empty{text-align:center;padding:30px 10px;color:var(--mut)}.empty .e{font-size:44px}
+/* tables */
+.tw{overflow:auto;border:1px solid var(--bd);border-radius:14px;background:var(--card)}
+table.dt{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px}
+.dt th{position:sticky;top:0;background:color-mix(in srgb,var(--pri) 8%,var(--card));text-align:left;padding:9px 8px;border-bottom:1px solid var(--bd);font-size:12.5px;color:var(--mut);white-space:nowrap;z-index:2}
+.dt td{padding:5px 6px;border-bottom:1px solid var(--bd)}
+.dt tr:hover td{background:color-mix(in srgb,var(--pri) 4%,transparent)}
+.dt input,.dt select{width:100%;border:1px solid transparent;background:transparent;border-radius:8px;padding:6px 7px;font-size:13.5px;min-width:60px}
+.dt input:focus,.dt select:focus{outline:0;border-color:var(--pri);background:var(--card)}
+.dt input.err,.dt select.err{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 8%,transparent)}
+.dt tr.left td{opacity:.55}
+.x{border:0;background:none;color:var(--bad);cursor:pointer;font-size:15px;padding:4px 6px;border-radius:8px}.x:hover{background:color-mix(in srgb,var(--bad) 10%,transparent)}
+/* attendance grid */
+.ag{border-collapse:separate;border-spacing:0;font-size:12.5px}
+.ag th,.ag td{border-bottom:1px solid var(--bd);border-right:1px solid var(--bd);text-align:center;padding:0}
+.ag th{position:sticky;top:0;background:var(--card);z-index:3;font-size:11px;padding:4px 2px;color:var(--mut)}
+.ag th.dh{cursor:pointer;min-width:30px}.ag th.dh:hover{background:color-mix(in srgb,var(--pri) 12%,var(--card))}
+.ag th.dh b{display:block;font-size:13px;color:var(--tx)}
+.ag .stk{position:sticky;left:0;z-index:2;background:var(--card);text-align:left;padding:4px 8px;min-width:190px;max-width:230px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ag th.stk{z-index:4}
+.ag td.c{width:30px;height:30px;cursor:pointer;font-weight:800;user-select:none;transition:background .12s}
+.ag td.c:hover{outline:2px solid var(--pri);outline-offset:-2px}
+.ag td.P{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.ag td.A{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.ag td.off,.ag th.off{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--mut) 14%,transparent) 0 4px,transparent 4px 8px);cursor:not-allowed;color:var(--mut)}
+.ag td.na{background:color-mix(in srgb,var(--mut) 10%,transparent);cursor:not-allowed}
+.ag td.un{background:color-mix(in srgb,var(--warn) 10%,transparent)}
+.ag td.tot{font-weight:800;min-width:42px;padding:0 4px}
+.ag tr.sum td{font-weight:700;background:color-mix(in srgb,var(--pri) 6%,var(--card));font-size:11.5px;height:24px}
+.ag tr.sum td.stk{background:color-mix(in srgb,var(--pri) 10%,var(--card))}
+.ag .rb{font-size:11px;border:0;background:none;cursor:pointer;color:var(--pri);padding:0 2px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--mut);margin:10px 0}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:5px;border:1px solid var(--bd)}
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .dn{font-size:12px;color:var(--mut);text-align:center;font-weight:700}
+.cal .cd{min-height:64px;border:1px solid var(--bd);border-radius:12px;padding:6px;cursor:pointer;background:var(--card);transition:.2s;font-size:12px;position:relative}
+.cal .cd:hover{border-color:var(--pri);transform:translateY(-2px)}
+.cal .cd b{font-size:15px}.cal .cd.off{background:color-mix(in srgb,var(--bad) 8%,var(--card));border-color:color-mix(in srgb,var(--bad) 30%,var(--bd))}
+.cal .cd.wk{background:color-mix(in srgb,var(--mut) 10%,var(--card))}
+.cal .cd.today{box-shadow:0 0 0 2px var(--pri)}
+.cal .cd small{display:block;color:var(--bad);font-size:11px;line-height:1.3;margin-top:2px}
+/* charts */
+.chart{display:flex;align-items:flex-end;gap:8px;height:190px;padding:10px 4px 0;border-bottom:1px solid var(--bd)}
+.chart .cb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.chart .cb i{display:block;width:100%;max-width:46px;border-radius:9px 9px 3px 3px;background:linear-gradient(180deg,var(--pri2),var(--pri));transition:height .8s cubic-bezier(.2,.8,.2,1);position:relative}
+.chart .cb i.lo{background:linear-gradient(180deg,#ff8e9e,var(--bad))}
+.chart .cb span{font-size:11.5px;font-weight:800;margin-bottom:3px}
+.chart .cb em{font-style:normal;font-size:11px;color:var(--mut);margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.donut{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.donut .lg div{display:flex;gap:8px;align-items:center;font-size:13px;margin:5px 0}.donut .lg i{width:12px;height:12px;border-radius:4px;display:inline-block}
+/* reports */
+.rcards{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.rcard{border:1.5px solid var(--bd);border-radius:16px;padding:14px;cursor:pointer;background:var(--card);transition:.25s;text-align:left}
+.rcard:hover{transform:translateY(-3px);border-color:var(--pri)}.rcard.on{border-color:var(--pri);box-shadow:0 0 0 4px color-mix(in srgb,var(--pri) 15%,transparent)}
+.rcard .e{font-size:24px}.rcard b{display:block;margin:4px 0 2px}.rcard small{color:var(--mut);font-size:12.5px}
+.pvbox{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--mut) 7%,transparent) 0 10px,transparent 10px 20px);border-radius:16px;padding:18px;overflow:auto;border:1px solid var(--bd);max-height:78vh}
+.pvin{margin:0 auto;width:max-content}
+.pvin .pg{margin:0 auto 18px;box-shadow:0 10px 30px #0003}
+.pvin.anim{animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+/* winners */
+.wcard{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:16px;border:1px solid var(--bd);background:linear-gradient(135deg,color-mix(in srgb,#ffd36b 22%,var(--card)),var(--card));margin-bottom:8px;animation:up .4s both}
+.wcard .md{font-size:28px}.wcard b{display:block}.wcard small{color:var(--mut)}
+.wcard .pc{margin-left:auto;font-weight:800;font-size:18px;color:var(--ok);font-family:'Baloo Bhai 2'}
+/* guide/faq */
+.gstep{display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--bd)}
+.gstep .gn{width:40px;height:40px;border-radius:13px;flex:none;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--pri),var(--sb2));font-family:'Baloo Bhai 2';font-size:18px}
+.gstep b{display:block}.gstep p{margin:3px 0 0;color:var(--mut);font-size:14px}
+details{border:1px solid var(--bd);border-radius:14px;padding:12px 16px;margin-bottom:10px;background:var(--card);transition:.2s}
+details[open]{border-color:var(--pri);box-shadow:var(--sh)}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:10px}summary:after{content:"＋";color:var(--pri)}details[open] summary:after{content:"－"}
+details p{color:var(--mut);margin:8px 0 0;font-size:14px}
+.contact{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.cc{border-radius:20px;padding:18px;color:#fff;position:relative;overflow:hidden;transition:.25s}
+.cc:hover{transform:translateY(-4px)}
+.cc:after{content:"";position:absolute;right:-30px;bottom:-40px;width:130px;height:130px;border-radius:50%;background:#ffffff1c}
+.cc b{display:block;font-size:17px}.cc small{opacity:.88}.cc .btn{margin-top:12px;background:#fff;color:#14203d;position:relative;z-index:1}
+.brandhero{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.brandhero h2{color:#fff!important;font-family:'Baloo Bhai 2';font-size:40px!important;margin:0!important}
+.stats3{display:flex;gap:24px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1}.stats3 b{display:block;font-size:26px;font-family:'Baloo Bhai 2'}.stats3 small{opacity:.8}
+.thc{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.tcard{border:2px solid var(--bd);border-radius:16px;padding:8px;cursor:pointer;background:var(--card);transition:.25s;text-align:center;font-size:13px;font-weight:700}
+.tcard:hover{transform:translateY(-3px)}.tcard.on{border-color:var(--pri);box-shadow:0 0 0 4px color-mix(in srgb,var(--pri) 18%,transparent)}
+.tcard .pv{height:62px;border-radius:11px;margin-bottom:7px;display:flex;overflow:hidden}.tcard .pv i{display:block}
+.tgl{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--bd);font-size:14px}
+.tgl small{display:block;color:var(--mut);font-size:12px}
+.sw2{position:relative;width:46px;height:26px;flex:none}.sw2 input{opacity:0;width:0;height:0}
+.sw2 i{position:absolute;inset:0;border-radius:99px;background:var(--bd);transition:.25s;cursor:pointer}
+.sw2 i:before{content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;border-radius:50%;background:#fff;transition:.25s;box-shadow:0 2px 5px #0003}
+.sw2 input:checked+i{background:var(--ok)}.sw2 input:checked+i:before{transform:translateX(20px)}
+.ft{text-align:center;color:var(--mut);font-size:12.5px;padding:16px 0 8px}.ft b{color:var(--pri)}.ft a{text-decoration:none;font-weight:700;color:var(--pri)}
+#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,40px);background:var(--sb1);color:#fff;padding:11px 20px;border-radius:99px;opacity:0;transition:.35s;z-index:300;font-size:14px;box-shadow:0 10px 30px #0004;max-width:92vw;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.modal{position:fixed;inset:0;background:#0007;z-index:150;display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)}
+.modal.on{display:flex}.modal .box{background:var(--card);border-radius:22px;padding:22px;max-width:560px;width:100%;max-height:90vh;overflow:auto;animation:pop .25s;box-shadow:0 30px 80px #0005}
+.modal h3{margin:0 0 10px}
+.scrim{display:none}
+@media(max-width:960px){
+ aside{position:fixed;top:0;bottom:0;left:0;transform:translateX(-105%)}aside.on{transform:none;box-shadow:20px 0 60px #0006}
+ .scrim.on{display:block;position:fixed;inset:0;background:#0006;z-index:25}
+ .grid:has(> .kpi){grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.kpi{padding:13px}.kpi .k{font-size:24px}.kpi .ic{width:32px;height:32px;font-size:15px}.hero{padding:22px 18px}
+ .hb{display:block}main{padding:14px 12px}.topbar{padding:8px 10px;flex-wrap:wrap}.tbtn .lbl,.sv{display:none}.ctx{order:5;width:100%}.ctx select{flex:1;max-width:none}
+}
+/* =============== PRINT PAGES =============== */
+.pg{background:#fff;color:#111;position:relative;overflow:hidden;font-family:'Noto Sans Gujarati',sans-serif;--dc:#1d3fae}
+.pg.L{width:1123px;height:794px;padding:26px 28px 30px}.pg.Pt{width:794px;height:1123px;padding:34px 36px 34px}
+.pg.bw{--dc:#111}
+.pg .ph{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--dc);padding-bottom:6px;margin-bottom:8px;gap:10px}
+.pg .ph h1{margin:0;font-size:20px;color:var(--dc);font-weight:800}.pg .ph .s{font-size:12px;color:#333}
+.pg .ph .r{text-align:right;font-size:12px;line-height:1.5}
+.pg .meta{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:12px;margin-bottom:6px}.pg .meta b{color:#000}
+.pg table.rt{width:100%;border-collapse:collapse;font-size:10.5px;table-layout:auto}
+.pg .rt th,.pg .rt td{border:1px solid #444;padding:2px 3px;text-align:center;line-height:1.25}
+.pg .rt th{background:color-mix(in srgb,var(--dc) 9%,#fff);font-weight:700;font-size:10px}
+.pg.bw .rt th{background:#eee}
+.pg .rt td.l{text-align:left;white-space:nowrap;overflow:hidden;max-width:190px}
+.pg .rt .off{background:#e8e8e8;color:#777}.pg .rt .A{color:#c1121f;font-weight:800}.pg .rt .b{font-weight:800}
+.pg .rt tr.ft td{background:#f4f6fb;font-weight:700}
+.pg .rt tr.gt td{background:color-mix(in srgb,var(--dc) 14%,#fff);font-weight:800}
+.pg .rt .hl{background:#fff4d6;font-weight:800}
+.pg .pf{position:absolute;left:28px;right:28px;bottom:9px;display:flex;justify-content:space-between;font-size:9.5px;color:#8a93a8}
+.pg .pf b{color:#c9681b}
+.pg .sig{display:flex;justify-content:space-between;margin-top:26px;font-size:12px}.pg .sig div{min-width:180px;text-align:center;border-top:1px solid #333;padding-top:3px}
+.pg .note{font-size:10.5px;color:#444;margin-top:6px}
+/* certificate */
+.cert{position:absolute;inset:22px;border:10px double var(--dc);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 60px;background:radial-gradient(circle at 50% 0,#fff8e6,#fff 60%)}
+.cert .cb1{font-family:'Noto Serif Gujarati',serif;font-size:46px;color:var(--dc);font-weight:700;margin:6px 0}
+.cert .medal{font-size:64px;line-height:1;margin-top:14px}
+.cert .nm{font-size:34px;font-weight:800;border-bottom:2px dotted #999;padding:0 30px 4px;margin:10px 0;font-family:'Noto Serif Gujarati',serif}
+.cert p{font-size:17px;line-height:1.8;margin:6px 0;max-width:820px}
+.cert .csig{display:flex;justify-content:space-between;width:100%;margin-top:40px;font-size:14px}.cert .csig div{border-top:1px solid #333;padding-top:4px;min-width:200px}
+.cap{position:fixed;left:0;top:0;z-index:-5;pointer-events:none}
+</style></head>
+<body>
+<div id="splash"><svg class="logo" width="96" height="96" viewBox="0 0 100 100"><defs><linearGradient id="lg0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ffd36b"/></linearGradient></defs><circle class="orb" cx="50" cy="50" r="46" fill="none" stroke="url(#lg0)" stroke-width="3" stroke-dasharray="210 80" stroke-linecap="round"/><rect x="18" y="18" width="64" height="64" rx="18" fill="#ffffff18" stroke="#ffffff40"/><text x="50" y="62" text-anchor="middle" font-family="Baloo Bhai 2,Arial" font-size="34" font-weight="800" fill="#fff">E<tspan fill="#ff8a1f">T</tspan></text></svg>
+<div class="bn">Easy<i>Tech</i>™</div><small>Smart Attendance · Smart Schools</small><div class="ld"><i></i></div></div>
+
+<div class="scrim" id="scrim" onclick="sideT(false)"></div>
+<aside id="side">
+ <div class="brand"><svg class="logo" width="50" height="50" viewBox="0 0 100 100"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ffd36b"/></linearGradient></defs><circle class="orb" cx="50" cy="50" r="46" fill="none" stroke="url(#lg1)" stroke-width="4" stroke-dasharray="210 80" stroke-linecap="round"/><rect x="16" y="16" width="68" height="68" rx="20" fill="#ffffff1c" stroke="#ffffff40"/><text x="50" y="63" text-anchor="middle" font-family="Baloo Bhai 2,Arial" font-size="36" font-weight="800" fill="#fff">E<tspan fill="#ff8a1f">T</tspan></text></svg>
+ <div><b>Easy<i>Tech</i>™<sup>PRO</sup></b><small>Smart Digital Tools for Teachers</small></div></div>
+ <div class="schoolchip" onclick="go('school')"><small>📍 શાળા · <span id="sYr"></span></small><b id="sName">શાળાની માહિતી ઉમેરો</b></div>
+ <nav class="nav" id="nav"></nav>
+ <div class="dev"><div class="av">SS</div><b>Shaikh Sakilahemad</b><small>Founder & Developer · EasyTech™<br>📞 9722222606</small>
+ <div class="row2"><a class="sbtn" href="tel:9722222606">📞 કૉલ</a><a class="sbtn wa" href="https://wa.me/919722222606?text=Hello%20EasyTech%2C%20Hajri%20Patrak%20help" target="_blank" rel="noopener">💬 ચેટ</a>
+ <a class="sbtn" href="https://chat.whatsapp.com/FZJ5okkp7KQKSOfwgC1XjX?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">👥 ગ્રુપ ૧</a><a class="sbtn" href="https://chat.whatsapp.com/Em0YM707Th04YVPpsZynmp?s=cl&p=a&iam=2" target="_blank" rel="noopener">👥 ગ્રુપ ૨</a>
+ <a class="sbtn" style="grid-column:1/-1" href="https://whatsapp.com/channel/0029Va8stPs1XqubCFWCMx47" target="_blank" rel="noopener">📢 વોટ્સએપ ચેનલ</a></div></div>
+</aside>
+
+<div class="main">
+ <div class="topbar">
+  <button class="hb" onclick="sideT(true)">☰</button>
+  <div class="crumb"><small>EasyTech™ › હાજરી પત્રક</small><b id="crumb">ડેશબોર્ડ</b></div>
+  <div class="ctx"><select id="cYear" title="શૈક્ષણિક વર્ષ" onchange="setYear(this.value)"></select><select id="cMonth" title="મહિનો" onchange="setMonth(this.value)"></select></div>
+  <span class="sv" id="sv"></span>
+  <button class="tbtn" onclick="go('att')" title="હાજરી પૂરો">✅ <span class="lbl">હાજરી</span></button>
+  <button class="tbtn" onclick="pal()" title="થીમ">🎨 <span class="lbl">થીમ</span></button>
+  <div class="palette" id="palette"></div>
+ </div>
+ <div class="ticker"><div id="tick"></div></div>
+ <main id="main">
+  <section class="view" id="v-dash"></section>
+  <section class="view" id="v-feat"></section>
+  <section class="view" id="v-school"></section>
+  <section class="view" id="v-teach"></section>
+  <section class="view" id="v-cls"></section>
+  <section class="view" id="v-att"></section>
+  <section class="view" id="v-daily"></section>
+  <section class="view" id="v-win"></section>
+  <section class="view" id="v-rep"></section>
+  <section class="view" id="v-check"></section>
+  <section class="view" id="v-set"></section>
+  <section class="view" id="v-guide"></section>
+  <section class="view" id="v-faq"></section>
+  <section class="view" id="v-brand"></section>
+  <div class="ft">© <span id="yr">2026</span> <b>EasyTech™</b> · Founder & Developer <b>Shaikh Sakilahemad</b> · <a href="tel:9722222606">9722222606</a> · <a href="https://chat.whatsapp.com/FZJ5okkp7KQKSOfwgC1XjX?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">WhatsApp ગ્રુપ ૧</a> · <a href="https://chat.whatsapp.com/Em0YM707Th04YVPpsZynmp?s=cl&p=a&iam=2" target="_blank" rel="noopener">WhatsApp ગ્રુપ ૨</a> · <a href="https://whatsapp.com/channel/0029Va8stPs1XqubCFWCMx47" target="_blank" rel="noopener">WhatsApp ચેનલ</a><br>તમારી માહિતી ફક્ત તમારા ઉપકરણમાં સચવાય છે.</div>
+ </main>
+</div>
+<div class="modal" id="modal" onclick="if(event.target==this)closeModal()"><div class="box" id="mbox"></div></div>
+<div id="toast"></div>
+<input type="file" id="fJson" accept=".json,application/json" hidden>
+<input type="file" id="fXlsx" accept=".xlsx" hidden>
+<script>
+'use strict';
+/* ================= CORE ================= */
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const KEY='easytech_hajri_v1';
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,9);
+const CATS=['અ. જા','અ. જ. જા','બક્ષી','અન્ય'];
+const CATS_S={'અ. જા':'અ.જા.','અ. જ. જા':'અ.જ.જા.','બક્ષી':'બક્ષી','અન્ય':'અન્ય'};
+const CATS_L={'અ. જા':'અનુ. જાતિ (SC)','અ. જ. જા':'અનુ. જનજાતિ (ST)','બક્ષી':'બક્ષી પંચ (SEBC)','અન્ય':'અન્ય'};
+const GEN=['કુમાર','કન્યા'];
+const STDS=['બાલવાટિકા','1','2','3','4','5','6','7','8'];
+const MON=['જાન્યુઆરી','ફેબ્રુઆરી','માર્ચ','એપ્રિલ','મે','જૂન','જુલાઈ','ઑગસ્ટ','સપ્ટેમ્બર','ઑક્ટોબર','નવેમ્બર','ડિસેમ્બર'];
+const WD=['રવિ','સોમ','મંગળ','બુધ','ગુરુ','શુક્ર','શનિ'];
+const WDE=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const CFG0={theme:'royal',uiFz:15,winPct:100,lowPct:75,gdig:false,brand:true,bw:false,dc:'#1d3fae',minDays:1};
+const SCH0={name:'',udise:'',cluster:'',crc:'',taluka:'',district:'',address:'',principal:'',pmob:'',email:'',type:'પ્રાથમિક શાળા',medium:'ગુજરાતી',off:[0],sat:'none',mdm:true};
+const DEF=()=>({school:{...SCH0},teachers:[],years:{},hol:{},cur:{y:'',m:'',c:'',d:''},cfg:{...CFG0}});
+let D=DEF();
+try{const o=JSON.parse(localStorage.getItem(KEY)||'null');if(o){D=Object.assign(DEF(),o);D.school=Object.assign({...SCH0},o.school||{});D.cfg=Object.assign({...CFG0},o.cfg||{})}}catch(e){}
+const pad=n=>String(n).padStart(2,'0');
+const today=()=>{const t=new Date();return t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate())};
+const ymOf=d=>d.slice(0,7);
+const ayOf=d=>{const y=+d.slice(0,4),m=+d.slice(5,7);return m>=6?`${y}-${pad((y+1)%100)}`:`${y-1}-${pad(y%100)}`};
+const ayMonths=ay=>{const y=+ay.slice(0,4);const r=[];for(let i=0;i<12;i++){const m=6+i;r.push(m<=12?`${y}-${pad(m)}`:`${y+1}-${pad(m-12)}`)}return r};
+const dim=m=>new Date(+m.slice(0,4),+m.slice(5,7),0).getDate();
+const mName=m=>MON[+m.slice(5,7)-1]+' '+m.slice(0,4);
+const fd=d=>d?d.split('-').reverse().join('/'):'';
+const GDIG='૦૧૨૩૪૫૬૭૮૯';
+const G=s=>D.cfg.gdig?String(s??'').replace(/[0-9]/g,d=>GDIG[d]):String(s??'');
+const r1=x=>Math.round(x*10)/10;
+const pct=(a,b)=>b?r1(a/b*100):0;
+function ensureYear(y){if(!D.years[y])D.years[y]={classes:[],stu:{},att:{}};return D.years[y]}
+function Y(){return ensureYear(D.cur.y)}
+const classes=()=>Y().classes.slice().sort((a,b)=>STDS.indexOf(a.std)-STDS.indexOf(b.std)||(a.div||'').localeCompare(b.div||''));
+const clsBy=id=>Y().classes.find(c=>c.id==id);
+const stuOf=cid=>Y().stu[cid]||(Y().stu[cid]=[]);
+const tName=id=>{const t=D.teachers.find(x=>x.id==id);return t?t.name:''};
+const cName=c=>c?(c.std=='બાલવાટિકા'?'બાલવાટિકા':'ધોરણ '+c.std)+(c.div?' – '+c.div:''):'';
+const cShort=c=>c?(c.std=='બાલવાટિકા'?'બાલવાટિકા':c.std)+(c.div?'-'+c.div:''):'';
+/* init cursor */
+(function(){const t=today();if(!D.cur.y||!D.years[D.cur.y]){const ys=Object.keys(D.years).sort();D.cur.y=ys.length?ys[ys.length-1]:ayOf(t)}ensureYear(D.cur.y);
+ const ms=ayMonths(D.cur.y);if(!ms.includes(D.cur.m))D.cur.m=ms.includes(ymOf(t))?ymOf(t):ms[0];
+ if(!clsBy(D.cur.c)){const c=classes()[0];D.cur.c=c?c.id:''}})();
+let svT;function save(){clearTimeout(svT);svT=setTimeout(()=>{try{localStorage.setItem(KEY,JSON.stringify(D));const s=$('#sv');if(s)s.textContent='✔ સચવાયું '+new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})}catch(e){toast('⚠️ સંગ્રહ ભરાઈ ગયો – બેકઅપ લઈ જૂનું વર્ષ દૂર કરો')}},250)}
+
+/* ================= CALENDAR / ATTENDANCE ================= */
+function dayInfo(ds){const h=D.hol[ds];const dt=new Date(+ds.slice(0,4),+ds.slice(5,7)-1,+ds.slice(8,10));const wd=dt.getDay();
+ if(h&&h.w)return{off:false,wd,label:h.t||'કાર્ય દિવસ',spl:1};if(h)return{off:true,wd,label:h.t||'રજા',hol:1};
+ if((D.school.off||[]).includes(wd))return{off:true,wd,label:WD[wd]+'વાર'};
+ if(wd==6&&D.school.sat!='none'){const n=Math.ceil(dt.getDate()/7);if(D.school.sat=='all'||(D.school.sat=='2-4'&&(n==2||n==4)))return{off:true,wd,label:n+' શનિવાર'}}
+ return{off:false,wd,label:''}}
+const active=(s,ds)=>(!s.adm||s.adm<=ds)&&(!s.left||ds<s.left);
+const inMonth=(s,m)=>{const a=m+'-01',b=m+'-'+pad(dim(m));return(!s.adm||s.adm<=b)&&(!s.left||s.left>a)};
+const aKey=(cid,m)=>cid+'|'+m;
+function getA(cid,m,sid){const o=Y().att[aKey(cid,m)];return(o&&o[sid])||''}
+function setA(cid,m,sid,day,ch){const k=aKey(cid,m),A=Y().att;A[k]=A[k]||{};let s=(A[k][sid]||'').padEnd(dim(m),'.');s=s.slice(0,day-1)+(ch||'.')+s.slice(day);A[k][sid]=s.replace(/\.+$/,'');save()}
+const cellOf=(str,day)=>{const c=str[day-1];return c=='P'||c=='A'?c:''};
+function monthDays(m){const n=dim(m),r=[];for(let d=1;d<=n;d++){const ds=m+'-'+pad(d);r.push({d,ds,...dayInfo(ds)})}return r}
+function mStats(cid,m,upto){const days=monthDays(m),S=stuOf(cid).filter(s=>inMonth(s,m));const lim=upto||'9999';
+ const work=days.filter(x=>!x.off);const rows=S.map(s=>{const str=getA(cid,m,s.id);let P=0,A=0,U=0,act=0,bad=0;
+  days.forEach(x=>{const c=cellOf(str,x.d);if(x.off){if(c)bad++;return}if(!active(s,x.ds)){if(c)bad++;return}act++;if(c=='P')P++;else if(c=='A')A++;else if(x.ds<=lim)U++});
+  return{s,str,P,A,U,act,bad,pc:pct(P,act)}});
+ const dayP=days.map(x=>{let p=0,a=0,b=0,g=0;rows.forEach(r=>{const c=cellOf(r.str,x.d);if(x.off||!active(r.s,x.ds))return;if(c=='P'){p++;r.s.g=='કન્યા'?g++:b++}else if(c=='A')a++});return{p,a,b,g}});
+ const gc={};GEN.forEach(g=>CATS.forEach(c=>{gc[g+'|'+c]=days.map(x=>x.off?0:rows.filter(r=>r.s.g==g&&r.s.cat==c&&active(r.s,x.ds)&&cellOf(r.str,x.d)=='P').length)}));
+ const reg={};GEN.forEach(g=>{reg[g]=S.filter(s=>s.g==g).length});reg.T=S.length;
+ const totP=rows.reduce((a,r)=>a+r.P,0),totAct=rows.reduce((a,r)=>a+r.act,0);
+ const PB=rows.filter(r=>r.s.g=='કુમાર').reduce((a,r)=>a+r.P,0),PG=totP-PB;
+ return{days,work:work.length,rows,dayP,gc,reg,totP,totAct,PB,PG,avg:work.length?r1(totP/work.length):0,avgB:work.length?r1(PB/work.length):0,avgG:work.length?r1(PG/work.length):0,pc:pct(totP,totAct)}}
+
+/* ================= THEMES ================= */
+const TH={
+ royal:{n:'રોયલ બ્લુ',bg:'#eef2fb',card:'#ffffff',tx:'#14203d',mut:'#62708f',pri:'#2348c9',pri2:'#5b7cff',acc:'#ff8a1f',bd:'#dce3f2',sb1:'#0a1840',sb2:'#163a96',sbt:'#d9e3ff'},
+ aurora:{n:'ઓરોરા',bg:'#f1f0ff',card:'#ffffff',tx:'#1d1640',mut:'#6c6890',pri:'#6a3cf0',pri2:'#b06cff',acc:'#ff5fa2',bd:'#e2defa',sb1:'#1a0f4a',sb2:'#5a2ad6',sbt:'#e9e2ff'},
+ emerald:{n:'એમરલ્ડ',bg:'#ecf8f3',card:'#ffffff',tx:'#0f2b23',mut:'#5c7a70',pri:'#0a8a66',pri2:'#2cc994',acc:'#ffc24a',bd:'#d3ece2',sb1:'#03271f',sb2:'#0b6b52',sbt:'#d6f5ea'},
+ saffron:{n:'કેસરી',bg:'#fff5ec',card:'#fffdfa',tx:'#35190a',mut:'#8a6550',pri:'#c2500c',pri2:'#ff8f3d',acc:'#1f9d6b',bd:'#f3dcc7',sb1:'#4a1600',sb2:'#a83e05',sbt:'#ffe3cf'},
+ ocean:{n:'ઓશન',bg:'#ebf6fa',card:'#ffffff',tx:'#0d2a35',mut:'#5b7884',pri:'#0e7490',pri2:'#22b8d6',acc:'#ff7a59',bd:'#d2e8ef',sb1:'#04222f',sb2:'#0d6585',sbt:'#d3f0fa'},
+ rose:{n:'રોઝ',bg:'#fdf0f4',card:'#ffffff',tx:'#33101e',mut:'#8a6170',pri:'#d0306a',pri2:'#ff6f9f',acc:'#ffb020',bd:'#f6d9e3',sb1:'#3b0a1e',sb2:'#a11d52',sbt:'#ffdbe8'},
+ slate:{n:'ગ્રેફાઇટ',bg:'#f1f3f6',card:'#ffffff',tx:'#1b2330',mut:'#6a7484',pri:'#334155',pri2:'#64748b',acc:'#22b8a5',bd:'#dde2ea',sb1:'#0f1520',sb2:'#2b3a52',sbt:'#dfe6f1'},
+ night:{n:'મિડનાઇટ',bg:'#0a0f1f',card:'#121a31',tx:'#e6ebfa',mut:'#97a3c6',pri:'#7c9cff',pri2:'#a7bbff',acc:'#4fd1c5',bd:'#243055',sb1:'#03050c',sb2:'#0f1934',sbt:'#cbd6ff'},
+ neon:{n:'નિયોન ડાર્ક',bg:'#0b0b12',card:'#15151f',tx:'#f1f1ff',mut:'#9a9ab8',pri:'#00d4ff',pri2:'#7a5cff',acc:'#ff2e88',bd:'#2a2a3d',sb1:'#07070c',sb2:'#1b1035',sbt:'#d9d9ff'},
+ forest:{n:'ફોરેસ્ટ ડાર્ક',bg:'#0c1410',card:'#13201a',tx:'#e5f3ea',mut:'#93ab9c',pri:'#34d399',pri2:'#6ee7b7',acc:'#fbbf24',bd:'#233a2d',sb1:'#050a07',sb2:'#0f2a1d',sbt:'#d1f5e1'}};
+function applyTheme(){const t=TH[D.cfg.theme]||TH.royal,r=document.documentElement.style;Object.keys(t).forEach(k=>k!='n'&&r.setProperty('--'+k,t[k]));r.setProperty('--fz',D.cfg.uiFz+'px');
+ const mt=$('meta[name=theme-color]');if(mt)mt.content=t.sb1;$$('[data-theme]').forEach(e=>e.classList.toggle('on',e.dataset.theme==D.cfg.theme))}
+function setTheme(t){D.cfg.theme=t;applyTheme();save();toast('🎨 થીમ: '+TH[t].n)}
+function pal(){$('#palette').classList.toggle('on')}
+$('#palette').innerHTML=Object.entries(TH).map(([k,t])=>`<button class="sw" data-theme="${k}" onclick="setTheme('${k}');pal()"><i style="background:linear-gradient(135deg,${t.sb1},${t.sb2} 55%,${t.acc})"></i>${t.n}</button>`).join('');
+document.addEventListener('click',e=>{if(!e.target.closest('#palette')&&!e.target.closest('.tbtn'))$('#palette').classList.remove('on')});
+
+/* ================= NAV ================= */
+const NAV=[['dash','🏠','ડેશબોર્ડ'],['att','✅','હાજરી એન્ટ્રી'],['daily','📊','દૈનિક જાતવારી તારીજ'],['win','🏆','હાજરી વિજેતા'],['rep','🖨️','રિપોર્ટ · PDF · Excel'],
+ 0,['school','🏫','શાળા અને કેલેન્ડર'],['teach','👩‍🏫','શિક્ષકો'],['cls','🎒','વર્ગ અને વિદ્યાર્થી'],['check','🛡️','ભૂલ ચકાસણી','nb'],
+ 1,['feat','✨','ખાસિયતો'],['guide','📘','માર્ગદર્શિકા'],['faq','❓','FAQ'],['set','🎨','થીમ અને સેટિંગ'],['brand','💎','EasyTech™ બ્રાન્ડ']];
+$('#nav').innerHTML='<div class="navsep">મુખ્ય</div>'+NAV.map(n=>n===0?'<div class="navsep">માહિતી</div>':n===1?'<div class="navsep">મદદ અને સેટિંગ</div>':`<button class="nv" data-v="${n[0]}" onclick="go('${n[0]}')"><span class="ic">${n[1]}</span>${n[2]}${n[3]?'<span class="nb" id="nb"></span>':''}</button>`).join('');
+let cur='dash';
+const R={};
+function go(v){cur=v;$$('.view').forEach(e=>e.classList.toggle('on',e.id=='v-'+v));$$('.nv').forEach(e=>e.classList.toggle('on',e.dataset.v==v));
+ const n=NAV.find(x=>x&&x[0]==v);$('#crumb').textContent=n?n[2]:'';sideT(false);$('#main').scrollTop=0;render()}
+function render(){try{(R[cur]||(()=>{}))()}catch(e){console.error(e)}hdr()}
+function sideT(o){$('#side').classList.toggle('on',o);$('#scrim').classList.toggle('on',o)}
+function hdr(){const ys=Object.keys(D.years).sort();$('#cYear').innerHTML=ys.map(y=>`<option ${y==D.cur.y?'selected':''}>${y}</option>`).join('')+'<option value="+">＋ નવું વર્ષ</option>';
+ $('#cMonth').innerHTML=ayMonths(D.cur.y).map(m=>`<option value="${m}" ${m==D.cur.m?'selected':''}>${mName(m)}</option>`).join('');
+ $('#sName').textContent=D.school.name||'શાળાની માહિતી ઉમેરો';$('#sYr').textContent='શૈ. વર્ષ '+D.cur.y;
+ const bad=issues().filter(x=>x[0]=='bad').length;const nb=$('#nb');if(nb)nb.textContent=bad||''}
+function setYear(y){if(y=='+'){newYearModal();hdr();return}D.cur.y=y;ensureYear(y);const ms=ayMonths(y);if(!ms.includes(D.cur.m))D.cur.m=ms.includes(ymOf(today()))?ymOf(today()):ms[0];const c=classes()[0];if(!clsBy(D.cur.c))D.cur.c=c?c.id:'';save();render();toast('📅 શૈક્ષણિક વર્ષ '+y)}
+function setMonth(m){D.cur.m=m;D.cur.d='';save();render()}
+const T1=['<b>EasyTech™</b> – શિક્ષકો માટે સ્માર્ટ ડિજિટલ ટૂલ્સ','✅ હાજરી પત્રક · બાલવાટિકા થી ધોરણ ૮','📊 જાતવારી તારીજ · 🏆 હાજરી વિજેતા · 🖨️ PDF અને Excel','Founder & Developer: <b>Shaikh Sakilahemad</b>','📞 Helpline / WhatsApp: <b>9722222606</b>','👥 બે વોટ્સએપ ગ્રુપ અને 📢 ચેનલમાં જોડાઓ','<b>Fast · Simple · Reliable</b>'];
+$('#tick').innerHTML=(T1.map(x=>`<span>${x}</span>`).join('')).repeat(2);$('#yr').textContent=new Date().getFullYear();
+
+/* ================= UI helpers ================= */
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3400)}
+function modal(h){$('#mbox').innerHTML=h;$('#modal').classList.add('on')}
+function closeModal(){$('#modal').classList.remove('on')}
+const get=(o,k)=>k.split('.').reduce((a,p)=>a==null?a:a[p],o);
+const setp=(o,k,v)=>{const p=k.split('.');let x=o;while(p.length>1){const q=p.shift();if(x[q]==null)x[q]={};x=x[q]}x[p[0]]=v};
+const F=(k,l,o={})=>`<label class="f${o.wide?' wide':''}"><span>${l}${o.req?' <em>*</em>':''}</span>${o.ta?`<textarea data-k="${k}" placeholder="${o.ph||''}">${esc(get(D,k))}</textarea>`:o.opts?`<select data-k="${k}">${o.opts.map(x=>`<option ${get(D,k)==x?'selected':''}>${x}</option>`).join('')}</select>`:`<input data-k="${k}" type="${o.t||'text'}" value="${esc(get(D,k))}" placeholder="${o.ph||''}" ${o.x||''}>`}</label>`;
+document.addEventListener('input',e=>{const t=e.target,k=t.dataset&&t.dataset.k;if(!k)return;let v=t.type=='checkbox'?t.checked:t.value;if(t.type=='number'||t.dataset.num)v=v===''?'':+v;setp(D,k,v);if(k.startsWith('cfg.')){applyTheme()}save();if(k.startsWith('school.'))hdr()});
+const catSel=(v,attr)=>`<select ${attr}><option value="">—</option>${CATS.map(c=>`<option value="${c}" ${v==c?'selected':''}>${CATS_S[c]}</option>`).join('')}</select>`;
+const genSel=(v,attr)=>`<select ${attr}><option value="">—</option>${GEN.map(c=>`<option ${v==c?'selected':''}>${c}</option>`).join('')}</select>`;
+const clsSel=(v,attr,all)=>`<select ${attr}>${all?'<option value="">બધા ધોરણ</option>':''}${classes().map(c=>`<option value="${c.id}" ${v==c.id?'selected':''}>${cName(c)}</option>`).join('')}</select>`;
+function donut(parts,size=150){const tot=parts.reduce((a,p)=>a+p.v,0)||1;let a0=0;const r=size/2-12,cx=size/2;const arcs=parts.map(p=>{const a1=a0+p.v/tot*Math.PI*2;const L=a1-a0>Math.PI?1:0;const x0=cx+r*Math.sin(a0),y0=cx-r*Math.cos(a0),x1=cx+r*Math.sin(a1-0.0001),y1=cx-r*Math.cos(a1-0.0001);a0=a1;return p.v?`<path d="M${x0} ${y0}A${r} ${r} 0 ${L} 1 ${x1} ${y1}" stroke="${p.c}" stroke-width="20" fill="none" stroke-linecap="butt"/>`:''}).join('');
+ return `<div class="donut"><svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${cx}" cy="${cx}" r="${r}" stroke="var(--bd)" stroke-width="20" fill="none"/>${arcs}<text x="${cx}" y="${cx+6}" text-anchor="middle" font-size="22" font-weight="800" fill="currentColor">${G(tot==1&&!parts.some(p=>p.v)?0:tot)}</text></svg><div class="lg">${parts.map(p=>`<div><i style="background:${p.c}"></i>${p.l}: <b>${G(p.v)}</b></div>`).join('')}</div></div>`}
+const CC=['#7c3aed','#0f9d58','#e8710a','#64748b'];
+</script>
+<script>
+/* ================= DASHBOARD ================= */
+R.dash=()=>{const C=classes(),m=D.cur.m,t=today();let stu=0,B=0,Gi=0,cat={};CATS.forEach(c=>cat[c]=0);
+ const rows=C.map(c=>{const st=mStats(c.id,m,t);st.rows.forEach(r=>{stu++;r.s.g=='કન્યા'?Gi++:B++;if(cat[r.s.cat]!=null)cat[r.s.cat]++});return{c,st}});
+ const totP=rows.reduce((a,x)=>a+x.st.totP,0),totAct=rows.reduce((a,x)=>a+x.st.totAct,0);const mp=pct(totP,totAct);
+ const tdI=dayInfo(t),tdIn=ymOf(t)==m;let tP=0,tA=0,tU=0;if(tdIn&&!tdI.off)rows.forEach(x=>x.st.rows.forEach(r=>{if(!active(r.s,t))return;const c=cellOf(r.str,+t.slice(8));c=='P'?tP++:c=='A'?tA++:tU++}));
+ const iss=issues();const bad=iss.filter(x=>x[0]=='bad').length;
+ const wins=rows.reduce((a,x)=>a+x.st.rows.filter(r=>r.act>=D.cfg.minDays&&r.pc>=D.cfg.winPct).length,0);
+ const absToday=[];if(tdIn&&!tdI.off)rows.forEach(x=>x.st.rows.forEach(r=>{if(active(r.s,t)&&cellOf(r.str,+t.slice(8))=='A')absToday.push({c:x.c,s:r.s})}));
+ const trend=ayMonths(D.cur.y).map(mm=>{let p=0,a=0;C.forEach(c=>{const s=mStats(c.id,mm);p+=s.totP;a+=s.totAct});return{mm,v:a?pct(p,a):null}});
+ $('#v-dash').innerHTML=`
+ <div class="card hero"><h1>${D.school.name?esc(D.school.name):'સ્માર્ટ હાજરી પત્રક'} 👋</h1>
+  <p>${D.school.name?`${esc([D.school.taluka&&'તા. '+D.school.taluka,D.school.district&&'જિ. '+D.school.district].filter(Boolean).join(' · '))} · શૈક્ષણિક વર્ષ ${D.cur.y} · ${mName(m)}`:'બાલવાટિકા થી ધોરણ ૮ સુધીની હાજરી, જાતવારી તારીજ, હાજરી વિજેતા અને તમામ પત્રકો – એક જ જગ્યાએ. શરૂ કરવા શાળાની માહિતી ઉમેરો.'}</p>
+  <div class="row"><button class="btn acc" onclick="go('att')">✅ આજની હાજરી પૂરો</button><button class="btn wh" onclick="go('daily')">📊 દૈનિક તારીજ</button><button class="btn wh" onclick="go('rep')">🖨️ પત્રકો છાપો</button>${!C.length?'<button class="btn wh" onclick="importX()">📥 Excel ફાઇલ આયાત કરો</button><button class="btn wh" onclick="fillDemo()">🧪 નમૂના માહિતી</button>':''}</div>
+  <div class="stats3"><div><b>${G(C.length)}</b><small>વર્ગ</small></div><div><b>${G(stu)}</b><small>વિદ્યાર્થી</small></div><div><b>${G(D.teachers.filter(x=>!x.left).length)}</b><small>શિક્ષકો</small></div><div><b>${G(mp)}%</b><small>${MON[+m.slice(5)-1]} હાજરી</small></div></div></div>
+ <div class="grid" style="margin-bottom:18px">
+  <div class="kpi pri"><div class="ic">🎒</div><div class="k">${G(stu)}</div><small>કુલ વિદ્યાર્થી</small><div class="d">👦 ${G(B)} કુમાર · 👧 ${G(Gi)} કન્યા</div></div>
+  <div class="kpi ${tdIn&&!tdI.off?'ok':''}" style="animation-delay:.05s"><div class="ic">📅</div><div class="k">${tdIn?(tdI.off?'રજા':G(tP)):'—'}</div><small>આજે હાજર ${tdIn&&!tdI.off?'('+G(pct(tP,tP+tA))+'%)':''}</small><div class="d" style="color:var(--bad)">${tdIn&&!tdI.off?`❌ ${G(tA)} ગેરહાજર · ⏳ ${G(tU)} બાકી`:tdIn?esc(tdI.label):'પસંદ કરેલ મહિનો ચાલુ નથી'}</div></div>
+  <div class="kpi ${mp>=85?'ok':mp?'bad':''}" style="animation-delay:.1s"><div class="ic">📈</div><div class="k">${G(mp)}%</div><small>માસિક સરેરાશ હાજરી</small><div class="bar"><i style="width:${mp}%"></i></div></div>
+  <div class="kpi" style="animation-delay:.15s"><div class="ic">🏆</div><div class="k">${G(wins)}</div><small>હાજરી વિજેતા (≥${G(D.cfg.winPct)}%)</small><div class="d" style="color:var(--mut)">${mName(m)}</div></div>
+  <div class="kpi ${bad?'bad':'ok'}" style="animation-delay:.2s"><div class="ic">🛡️</div><div class="k">${G(bad)}</div><small>સુધારવાની ભૂલો</small><div class="d"><a href="#" onclick="go('check');return false" style="color:var(--pri)">ચકાસણી જુઓ →</a></div></div>
+ </div>
+ <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-bottom:0">
+  <div class="card"><h2>📊 ધોરણવાર માસિક હાજરી (%)</h2><p class="sub">${mName(m)} · બારને ક્લિક કરી તે વર્ગની હાજરી ખોલો</p>${C.length?`<div class="chart">${rows.map(x=>`<div class="cb" onclick="D.cur.c='${x.c.id}';go('att')" style="cursor:pointer" title="${esc(cName(x.c))}"><span>${G(x.st.pc)}</span><i class="${x.st.pc&&x.st.pc<D.cfg.lowPct?'lo':''}" style="height:${Math.max(2,x.st.pc*1.5)}px"></i><em>${esc(cShort(x.c))}</em></div>`).join('')}</div>`:empty('🎒','હજુ કોઈ વર્ગ નથી','cls')}</div>
+  <div class="card"><h2>👥 કેટેગરીવાર વિદ્યાર્થી</h2><p class="sub">શૈ. વર્ષ ${D.cur.y}</p>${donut(CATS.map((c,i)=>({l:CATS_L[c],v:cat[c],c:CC[i]})))}</div>
+ </div>
+ <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+  <div class="card"><h2>📈 વર્ષ દરમિયાન હાજરીનો ટ્રેન્ડ</h2><p class="sub">દરેક મહિનાની સમગ્ર શાળાની સરેરાશ હાજરી</p><div class="chart" style="height:160px">${trend.map(x=>`<div class="cb" onclick="setMonth('${x.mm}')" style="cursor:pointer"><span>${x.v==null?'':G(Math.round(x.v))}</span><i style="height:${x.v==null?2:Math.max(2,x.v*1.2)}px;${x.mm==m?'background:linear-gradient(180deg,var(--acc),#e2541c)':''}"></i><em>${MON[+x.mm.slice(5)-1].slice(0,3)}</em></div>`).join('')}</div></div>
+  <div class="card"><h2>❌ આજના ગેરહાજર</h2><p class="sub">${fd(t)} · વાલી સંપર્ક માટે</p>${absToday.length?absToday.slice(0,12).map(x=>`<div class="iss bad"><span>👤</span><span><b>${esc(x.s.name)}</b> · ${esc(cName(x.c))}</span><span class="go">GR ${esc(x.s.gr)}</span></div>`).join('')+(absToday.length>12?`<small style="color:var(--mut)">… અને ${absToday.length-12} વધુ</small>`:''):'<div class="empty"><div class="e">🎉</div>આજે કોઈ ગેરહાજર નોંધાયેલ નથી</div>'}</div>
+ </div>
+ <div class="card"><h2>⚡ ઝડપી કામ</h2><p class="sub">એક ક્લિકમાં</p><div class="grid">
+  <button class="qa" onclick="go('att')"><span class="e">✅</span><b>હાજરી એન્ટ્રી</b><small>દિવસ મુજબ ઝડપી અથવા આખા મહિનાનું પત્રક</small></button>
+  <button class="qa" onclick="go('cls')"><span class="e">🎒</span><b>વિદ્યાર્થી ઉમેરો/બાદ કરો</b><small>વર્ગવાર યાદી, પ્રવેશ અને શાળા છોડ્યા તારીખ</small></button>
+  <button class="qa" onclick="go('win')"><span class="e">🏆</span><b>હાજરી વિજેતા</b><small>ધોરણવાર અને સમગ્ર શાળા, પ્રમાણપત્ર</small></button>
+  <button class="qa" onclick="go('school')"><span class="e">📆</span><b>રજા કેલેન્ડર</b><small>તહેવાર, વેકેશન, વિશેષ કાર્ય દિવસ</small></button>
+ </div></div>
+ <div class="card"><h2>🛡️ ધ્યાન આપવાની બાબતો</h2><p class="sub">ભૂલ પર ક્લિક કરી સીધા સુધારો</p>${issHtml(iss.filter(x=>x[0]!='info'),5)||'<div class="iss ok"><span>✅</span><span>બધું બરાબર છે!</span></div>'}</div>`};
+const empty=(e,t,v)=>`<div class="empty"><div class="e">${e}</div>${t}${v?`<br><button class="btn sm" style="margin-top:10px" onclick="go('${v}')">શરૂ કરો →</button>`:''}</div>`;
+
+/* ================= SCHOOL + CALENDAR ================= */
+R.school=()=>{const s=D.school,m=D.cur.m,days=monthDays(m);const first=days[0].wd;const t=today();
+ $('#v-school').innerHTML=`
+ <div class="card"><h2>🏫 શાળાની માહિતી</h2><p class="sub">આ માહિતી દરેક પત્રકના મથાળે આવશે. કોઈ પણ શાળા પોતાની માહિતી ભરી વાપરી શકે.</p><div class="fg">
+  ${F('school.name','શાળાનું નામ',{req:1,ph:'દા.ત. શ્રી ... પ્રાથમિક શાળા'})}${F('school.udise','UDISE / ડાયસ કોડ',{x:'inputmode="numeric"'})}
+  ${F('school.type','શાળાનો પ્રકાર',{opts:['પ્રાથમિક શાળા','પ્રાથમિક શાળા (૧ થી ૫)','ઉચ્ચ પ્રાથમિક શાળા (૬ થી ૮)','પે સેન્ટર શાળા','ખાનગી / અનુદાનિત શાળા','અન્ય']})}${F('school.medium','માધ્યમ',{opts:['ગુજરાતી','અંગ્રેજી','હિન્દી','અન્ય']})}
+  ${F('school.cluster','ક્લસ્ટર / CRC')}${F('school.taluka','તાલુકો')}${F('school.district','જિલ્લો')}${F('school.principal','આચાર્યનું નામ')}
+  ${F('school.pmob','આચાર્યનો મોબાઇલ',{x:'inputmode="tel"'})}${F('school.email','ઈ-મેઇલ',{t:'email'})}${F('school.address','સરનામું',{wide:1})}</div></div>
+ <div class="card"><h2>🗓️ સાપ્તાહિક રજા અને કાર્ય દિવસ</h2><p class="sub">કામના દિવસ આપોઆપ ગણાશે (Excel માં ૨૫ જેવો આંકડો જાતે લખવો પડતો).</p>
+  <div class="fg"><div class="f"><span>સાપ્તાહિક રજા</span><div class="seg">${WD.map((w,i)=>`<button class="${(s.off||[]).includes(i)?'on':''}" onclick="toggleOff(${i})">${w}</button>`).join('')}</div></div>
+  <div class="f"><span>શનિવાર</span><div class="seg">${[['none','બધા ચાલુ'],['2-4','બીજો-ચોથો રજા'],['all','બધા રજા']].map(x=>`<button class="${s.sat==x[0]?'on':''}" onclick="D.school.sat='${x[0]}';save();render()">${x[1]}</button>`).join('')}</div></div>
+  <label class="f"><span>મધ્યાહન ભોજન (MDM)</span><span style="display:flex;gap:8px;align-items:center;color:var(--tx);font-weight:500"><input type="checkbox" data-k="school.mdm" ${s.mdm?'checked':''} style="width:auto"> શાળામાં MDM ચાલુ છે</span></label></div></div>
+ <div class="card"><h2>📆 રજા કેલેન્ડર – ${mName(m)}</h2><p class="sub">તારીખ પર ક્લિક કરી તહેવાર/વેકેશન/સ્થાનિક રજા અથવા રવિવારે વિશેષ કાર્ય દિવસ નક્કી કરો. ઉપર મહિનો બદલો.</p>
+  <div class="row" style="margin-bottom:12px"><button class="btn gh sm" onclick="rangeHol()">🏖️ વેકેશન (તારીખથી તારીખ)</button><button class="btn gh sm" onclick="pubHol()">📌 જાહેર રજાઓની યાદી</button><span class="tag">${G(days.filter(x=>!x.off).length)} કામના દિવસ</span><span class="tag bad">${G(days.filter(x=>x.off).length)} રજા</span></div>
+  <div class="cal">${WD.map(w=>`<div class="dn">${w}</div>`).join('')}${'<div></div>'.repeat(first)}${days.map(x=>`<div class="cd ${x.off?(x.hol?'off':'wk'):''} ${x.ds==t?'today':''}" onclick="holEdit('${x.ds}')"><b>${G(x.d)}</b>${x.label?`<small>${esc(x.label)}</small>`:''}${x.spl?'<small style="color:var(--ok)">✔ કાર્ય દિવસ</small>':''}</div>`).join('')}</div>
+  <div class="legend"><span><i style="background:color-mix(in srgb,var(--bad) 12%,var(--card))"></i>તહેવાર/વેકેશન</span><span><i style="background:color-mix(in srgb,var(--mut) 14%,var(--card))"></i>સાપ્તાહિક રજા</span><span><i style="box-shadow:0 0 0 2px var(--pri)"></i>આજે</span></div></div>
+ <div class="card"><h2>📋 આ વર્ષની રજાઓ</h2>${holList()}</div>`};
+function holList(){const ms=ayMonths(D.cur.y),a=ms[0]+'-01',b=ms[11]+'-31';const L=Object.entries(D.hol).filter(([d])=>d>=a&&d<=b).sort();
+ return L.length?`<div class="tw"><table class="dt"><tr><th>તારીખ</th><th>વાર</th><th>વિગત</th><th>પ્રકાર</th><th></th></tr>${L.map(([d,h])=>`<tr><td>${fd(d)}</td><td>${WD[new Date(d).getDay()]}</td><td>${esc(h.t)}</td><td>${h.w?'<span class="tag ok">કાર્ય દિવસ</span>':'<span class="tag bad">રજા</span>'}</td><td><button class="x" onclick="delete D.hol['${d}'];save();render()">✕</button></td></tr>`).join('')}</table></div>`:'<div class="empty">હજુ કોઈ રજા ઉમેરી નથી</div>'}
+function toggleOff(i){const o=D.school.off||(D.school.off=[]);const k=o.indexOf(i);k<0?o.push(i):o.splice(k,1);save();render()}
+function holEdit(ds){const h=D.hol[ds]||{},i=dayInfo(ds);modal(`<h3>📆 ${fd(ds)} (${WD[i.wd]})</h3><p style="color:var(--mut);margin-top:0">હાલ: <b>${i.off?'રજા – '+esc(i.label):'કાર્ય દિવસ'+(i.spl?' (વિશેષ)':'')}</b></p>
+ <div class="fg"><label class="f wide"><span>વિગત</span><input id="hT" value="${esc(h.t||'')}" placeholder="દા.ત. દિવાળી વેકેશન / સ્થાનિક રજા / શનિવારે કાર્ય"></label></div>
+ <div class="chips" style="margin:10px 0">${['દિવાળી વેકેશન','ઉનાળુ વેકેશન','જાહેર રજા','સ્થાનિક રજા','પરીક્ષા','કુદરતી આફત'].map(x=>`<span class="chip" onclick="$('#hT').value='${x}'">${x}</span>`).join('')}</div>
+ <div class="row"><button class="btn rd" onclick="setHol('${ds}',0)">🏖️ રજા તરીકે</button><button class="btn ok" onclick="setHol('${ds}',1)">✔ કાર્ય દિવસ તરીકે</button><button class="btn gh" onclick="delete D.hol['${ds}'];save();closeModal();render()">↺ સામાન્ય</button><button class="btn gh" onclick="closeModal()">બંધ</button></div>`)}
+function setHol(ds,w){const t=$('#hT').value.trim()||(w?'વિશેષ કાર્ય દિવસ':'રજા');D.hol[ds]={t,w:!!w};const n=clearOnOff([ds]);save();closeModal();render();toast((w?'✔ કાર્ય દિવસ: ':'🏖️ રજા: ')+fd(ds)+(n?` · ${n} હાજરી નોંધ દૂર`:''))}
+function clearOnOff(dsList){let n=0;Object.values(D.years).forEach(y=>Object.entries(y.att).forEach(([k,o])=>{const m=k.split('|')[1];dsList.forEach(ds=>{if(ymOf(ds)!=m||!dayInfo(ds).off)return;const d=+ds.slice(8);Object.keys(o).forEach(sid=>{const s=o[sid];if(s[d-1]=='P'||s[d-1]=='A'){o[sid]=(s.slice(0,d-1)+'.'+s.slice(d)).replace(/\.+$/,'');n++}})})}));return n}
+function rangeHol(){modal(`<h3>🏖️ વેકેશન / લાંબી રજા</h3><div class="fg"><label class="f"><span>તારીખથી</span><input type="date" id="h1"></label><label class="f"><span>તારીખ સુધી</span><input type="date" id="h2"></label><label class="f wide"><span>વિગત</span><input id="h3" value="દિવાળી વેકેશન"></label></div><div class="row" style="margin-top:14px"><button class="btn" onclick="applyRange()">ઉમેરો</button><button class="btn gh" onclick="closeModal()">બંધ</button></div>`)}
+function applyRange(){const a=$('#h1').value,b=$('#h2').value,t=$('#h3').value||'વેકેશન';if(!a||!b||b<a)return toast('માન્ય તારીખો પસંદ કરો');const L=[];let d=new Date(a);const e=new Date(b);while(d<=e){const ds=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());D.hol[ds]={t,w:false};L.push(ds);d.setDate(d.getDate()+1)}clearOnOff(L);save();closeModal();render();toast('🏖️ '+L.length+' દિવસ રજા ઉમેરાઈ')}
+function pubHol(){const y=+D.cur.y.slice(0,4);const L=[[y+'-08-15','સ્વાતંત્ર્ય દિન'],[y+'-10-02','ગાંધી જયંતી'],[(y+1)+'-01-26','પ્રજાસત્તાક દિન']];modal(`<h3>📌 નિશ્ચિત તારીખવાળી જાહેર રજાઓ</h3><p style="color:var(--mut)">તહેવારોની તારીખ દર વર્ષે બદલાય છે, તેથી સરકારી રજાની યાદી મુજબ કેલેન્ડરમાં જાતે ઉમેરો. નીચેની નિશ્ચિત તારીખવાળી રજાઓ ઉમેરી શકાય:</p>${L.map(x=>`<div class="iss info"><span>📌</span><span>${fd(x[0])} – ${x[1]}</span></div>`).join('')}<p style="color:var(--mut);font-size:13px">નોંધ: રાષ્ટ્રીય પર્વે શાળામાં ઉજવણી થતી હોય તો હાજરી માટે કાર્ય દિવસ રાખી શકો.</p><div class="row"><button class="btn" onclick="${L.map(x=>`D.hol['${x[0]}']={t:'${x[1]}',w:false};`).join('')}save();closeModal();render();toast('📌 ઉમેરાઈ')">ઉમેરો</button><button class="btn gh" onclick="closeModal()">બંધ</button></div>`)}
+
+/* ================= TEACHERS ================= */
+R.teach=()=>{const T=D.teachers;const asg=id=>classes().filter(c=>c.tid==id).map(cShort).join(', ');
+ $('#v-teach').innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><div><h2 style="margin:0">👩‍🏫 શિક્ષકો</h2><span style="color:var(--mut);font-size:13px">કાર્યરત ${G(T.filter(t=>!t.left).length)} · કુલ ${G(T.length)}</span></div><button class="btn" onclick="addT()">＋ શિક્ષક ઉમેરો</button></div></div>
+ <div class="card" style="padding:0"><div class="tw" style="border:0">${T.length?`<table class="dt"><tr><th>#</th><th>નામ</th><th>હોદ્દો</th><th>મોબાઇલ</th><th>જન્મ તારીખ</th><th>હાજર થયા</th><th>વર્ગ શિક્ષક</th><th>છૂટા થયા</th><th></th></tr>${T.map((t,i)=>`<tr class="${t.left?'left':''}"><td>${G(i+1)}</td><td><input data-t="${i}|name" value="${esc(t.name)}" class="${!t.name?'err':''}" style="min-width:190px"></td><td><select data-t="${i}|desig">${['આચાર્ય','મુખ્ય શિક્ષક','મદદનીશ શિક્ષક','વિદ્યાસહાયક','શિક્ષણ સહાયક','પ્રવાસી શિક્ષક','જ્ઞાન સહાયક','બાલવાટિકા શિક્ષક','અન્ય'].map(x=>`<option ${t.desig==x?'selected':''}>${x}</option>`).join('')}</select></td><td><input data-t="${i}|mob" value="${esc(t.mob)}" inputmode="tel" style="min-width:110px"></td><td><input type="date" data-t="${i}|dob" value="${esc(t.dob)}"></td><td><input type="date" data-t="${i}|join" value="${esc(t.join)}"></td><td><span class="tag ${asg(t.id)?'pri':''}">${esc(asg(t.id)||'—')}</span></td><td><input type="date" data-t="${i}|left" value="${esc(t.left)}" title="શિક્ષક છૂટા થાય ત્યારે તારીખ"></td><td><button class="x" onclick="delT(${i})">✕</button></td></tr>`).join('')}</table>`:empty('👩‍🏫','હજુ કોઈ શિક્ષક નથી')}</div></div>
+ <div class="info">💡 વર્ગ શિક્ષક "વર્ગ અને વિદ્યાર્થી" ટેબમાંથી નક્કી કરો. બદલી/નિવૃત્તિ થાય ત્યારે શિક્ષક દૂર કરવાને બદલે "છૂટા થયા" તારીખ લખો, જેથી જૂનાં પત્રકો બરાબર રહે.</div>`};
+function addT(){D.teachers.push({id:uid(),name:'',desig:'મદદનીશ શિક્ષક'});save();render();setTimeout(()=>{const l=$$('[data-t$="|name"]');l[l.length-1]&&l[l.length-1].focus()},50)}
+function delT(i){const t=D.teachers[i];if(!confirm(`${t.name||'આ શિક્ષક'} ને કાયમી દૂર કરવા છે? (બદલી/નિવૃત્તિ હોય તો "છૂટા થયા" તારીખ લખવી વધુ સારી)`))return;Object.values(D.years).forEach(y=>y.classes.forEach(c=>{if(c.tid==t.id)c.tid=''}));D.teachers.splice(i,1);save();render()}
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset.t){const[i,f]=t.dataset.t.split('|');D.teachers[+i][f]=t.value;if(f=='name')t.classList.toggle('err',!t.value);save()}});
+
+/* ================= CLASSES & STUDENTS ================= */
+R.cls=()=>{const C=classes();if(!clsBy(D.cur.c)&&C[0])D.cur.c=C[0].id;const c=clsBy(D.cur.c);
+ $('#v-cls').innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><div><h2 style="margin:0">🎒 વર્ગ અને વિદ્યાર્થી · ${D.cur.y}</h2><span style="color:var(--mut);font-size:13px">વર્ગ પસંદ કરો, વિદ્યાર્થી ઉમેરો/બાદ કરો. શાળા છોડે તો "છોડ્યા તારીખ" લખો.</span></div>
+  <div class="row"><button class="btn" onclick="addC()">＋ વર્ગ ઉમેરો</button><button class="btn gh" onclick="importX()">📥 Excel આયાત</button><button class="btn gh" onclick="newYearModal()">🎓 નવું વર્ષ / પ્રમોશન</button></div></div>
+  <div class="chips" style="margin-top:14px">${C.map(x=>{const S=stuOf(x.id).filter(s=>!s.left);return `<button class="chip ${x.id==D.cur.c?'on':''}" onclick="D.cur.c='${x.id}';save();render()">${esc(cName(x))} <b style="opacity:.75">· ${G(S.length)}</b></button>`}).join('')||'<span style="color:var(--mut)">હજુ કોઈ વર્ગ નથી – "＋ વર્ગ ઉમેરો" દબાવો</span>'}</div></div>
+ ${c?clsCard(c):''}`};
+function clsCard(c){const S=stuOf(c.id);const act=S.filter(s=>!s.left),B=act.filter(s=>s.g=='કુમાર').length;const dupGR=new Set([...grDups()].filter(x=>x.startsWith(c.id+'|')).map(x=>x.split('|')[1]));
+ return `<div class="card"><div class="row" style="justify-content:space-between;margin-bottom:12px"><div><h2 style="margin:0">${esc(cName(c))}</h2><span style="color:var(--mut);font-size:13px">👦 ${G(B)} કુમાર · 👧 ${G(act.length-B)} કન્યા · કુલ ${G(act.length)}${S.length>act.length?` · ${G(S.length-act.length)} શાળા છોડી ગયા`:''}</span></div>
+  <div class="row"><label class="f" style="flex-direction:row;align-items:center;gap:8px"><span>વર્ગ શિક્ષક</span><select onchange="clsBy('${c.id}').tid=this.value;save();hdr()" style="min-width:200px"><option value="">— પસંદ કરો —</option>${D.teachers.filter(t=>!t.left||t.id==c.tid).map(t=>`<option value="${t.id}" ${c.tid==t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select></label>
+  <button class="btn gh sm" onclick="editC('${c.id}')">✏️ વર્ગ</button><button class="btn gh sm" onclick="delC('${c.id}')" style="color:var(--bad)">🗑️</button></div></div>
+  <div class="row" style="margin-bottom:12px"><button class="btn sm" onclick="addS()">＋ વિદ્યાર્થી</button><button class="btn gh sm" onclick="bulkS()">📋 એક સાથે ઘણા ઉમેરો</button><button class="btn gh sm" onclick="sortS('gr')">↕️ GR મુજબ</button><button class="btn gh sm" onclick="sortS('name')">🔤 નામ મુજબ</button><button class="btn gh sm" onclick="sortS('g')">👦👧 કુમાર-કન્યા</button><button class="btn gh sm" onclick="showRep('stu')">🖨️ યાદી છાપો</button></div>
+  ${S.length?`<div class="tw"><table class="dt"><tr><th>#</th><th>GR નં.</th><th>વિદ્યાર્થીનું નામ</th><th>જાતિ</th><th>કેટેગરી</th><th>જન્મ તારીખ</th><th>પ્રવેશ તારીખ</th><th>MDM</th><th>શાળા છોડ્યા</th><th>કારણ</th><th>બીજા વર્ગમાં</th><th></th></tr>
+  ${S.map((s,i)=>`<tr class="${s.left?'left':''}"><td>${G(i+1)}</td><td><input data-s="${i}|gr" value="${esc(s.gr)}" class="${!s.gr||dupGR.has(String(s.gr).trim())?'err':''}" style="width:70px;min-width:70px" title="${dupGR.has(String(s.gr).trim())?'આ GR નંબર બીજે પણ છે':''}"></td><td><input data-s="${i}|name" value="${esc(s.name)}" class="${!s.name?'err':''}" style="min-width:200px"></td><td>${genSel(s.g,`data-s="${i}|g" class="${!s.g?'err':''}" style="min-width:92px"`)}</td><td>${catSel(s.cat,`data-s="${i}|cat" class="${!s.cat?'err':''}" style="min-width:104px"`)}</td><td><input type="date" data-s="${i}|dob" value="${esc(s.dob)}" class="${s.dob&&s.dob>today()?'err':''}"></td><td><input type="date" data-s="${i}|adm" value="${esc(s.adm)}" title="ખાલી = વર્ષની શરૂઆતથી"></td><td style="text-align:center"><input type="checkbox" data-s="${i}|mdm" ${s.mdm!==false?'checked':''} style="width:auto;min-width:0"></td><td><input type="date" data-s="${i}|left" value="${esc(s.left)}" class="${s.left&&s.adm&&s.left<s.adm?'err':''}"></td><td><select data-s="${i}|why"><option></option>${['LC – શાળા બદલી','સ્થળાંતર','ડ્રોપઆઉટ','અવસાન','અન્ય'].map(x=>`<option ${s.why==x?'selected':''}>${x}</option>`).join('')}</select></td><td><select onchange="moveS(${i},this.value)"><option value="">—</option>${classes().filter(x=>x.id!=c.id).map(x=>`<option value="${x.id}">${esc(cShort(x))}</option>`).join('')}</select></td><td><button class="x" onclick="delS(${i})" title="કાયમી દૂર કરો">✕</button></td></tr>`).join('')}</table></div>`:empty('🧒','આ વર્ગમાં હજુ કોઈ વિદ્યાર્થી નથી')}
+  <div class="info" style="margin-top:14px">💡 નવો પ્રવેશ: "પ્રવેશ તારીખ" લખો, એ પહેલાંના દિવસ હાજરીમાં બંધ રહેશે. શાળા છોડે: "શાળા છોડ્યા" તારીખ + કારણ લખો – વિદ્યાર્થી ભૂંસવાની જરૂર નથી, જૂની હાજરી સચવાયેલી રહેશે.</div></div>`}
+function grDups(){const d=new Set();classes().forEach(c=>{const m={};stuOf(c.id).forEach(s=>{const g=String(s.gr||'').trim();if(!g)return;if(m[g])d.add(c.id+'|'+g);m[g]=1})});return d}
+function grCross(){const m={};let n=0;classes().forEach(c=>{const seen=new Set();stuOf(c.id).forEach(s=>{const g=String(s.gr||'').trim();if(!g||seen.has(g))return;seen.add(g);m[g]=(m[g]||0)+1})});Object.values(m).forEach(v=>{if(v>1)n++});return n}
+document.addEventListener('input',e=>{const t=e.target;if(!t.dataset.s)return;const[i,f]=t.dataset.s.split('|');const s=stuOf(D.cur.c)[+i];if(!s)return;s[f]=t.type=='checkbox'?t.checked:t.value;save();if(['g','cat','name','gr'].includes(f))t.classList.toggle('err',!t.value)});
+document.addEventListener('change',e=>{const t=e.target;if(t.dataset.s&&/\|(left|adm|gr)$/.test(t.dataset.s))render()});
+function addC(){modal(`<h3>＋ નવો વર્ગ</h3><div class="fg"><label class="f"><span>ધોરણ</span><select id="nStd">${STDS.map(x=>`<option value="${x}">${x=='બાલવાટિકા'?x:'ધોરણ '+x}</option>`).join('')}</select></label><label class="f"><span>વર્ગ/વિભાગ (વૈકલ્પિક)</span><input id="nDiv" placeholder="દા.ત. A"></label><label class="f wide"><span>વર્ગ શિક્ષક</span><select id="nT"><option value="">—</option>${D.teachers.filter(t=>!t.left).map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('')}</select></label></div><div class="row" style="margin-top:14px"><button class="btn" onclick="saveC()">ઉમેરો</button><button class="btn gh" onclick="closeModal()">બંધ</button></div>`)}
+function saveC(id){const std=$('#nStd').value,div=$('#nDiv').value.trim().toUpperCase(),tid=$('#nT').value;if(Y().classes.some(c=>c.std==std&&(c.div||'')==div&&c.id!=id))return toast('આ વર્ગ પહેલેથી છે');if(id){Object.assign(clsBy(id),{std,div,tid})}else{const c={id:uid(),std,div,tid};Y().classes.push(c);D.cur.c=c.id}save();closeModal();render();toast('✅ વર્ગ સચવાયો')}
+function editC(id){addC();const c=clsBy(id);$('#nStd').value=c.std;$('#nDiv').value=c.div||'';$('#nT').value=c.tid||'';$('#mbox h3').textContent='✏️ વર્ગ સુધારો';$('#mbox .btn').setAttribute('onclick',`saveC('${id}')`)}
+function delC(id){const n=stuOf(id).length;if(!confirm(`${cName(clsBy(id))} દૂર કરવો છે? ${n?n+' વિદ્યાર્થી અને તેમની હાજરી પણ દૂર થશે.':''}`))return;const y=Y();y.classes=y.classes.filter(c=>c.id!=id);delete y.stu[id];Object.keys(y.att).forEach(k=>{if(k.startsWith(id+'|'))delete y.att[k]});D.cur.c=(classes()[0]||{}).id||'';save();render()}
+function addS(){const S=stuOf(D.cur.c);const mx=S.reduce((a,s)=>Math.max(a,parseInt(s.gr)||0),0);S.push({id:uid(),gr:mx?String(mx+1):'',name:'',g:'',cat:'',mdm:true,adm:''});save();render();setTimeout(()=>{const l=$$('[data-s$="|name"]');l[l.length-1]&&l[l.length-1].focus()},60)}
+function delS(i){const s=stuOf(D.cur.c)[i];if(!confirm(`${s.name||'આ વિદ્યાર્થી'} ને કાયમી દૂર કરવો છે? તેની હાજરી પણ દૂર થશે.\n(શાળા છોડી હોય તો "શાળા છોડ્યા" તારીખ લખવી વધુ યોગ્ય છે.)`))return;stuOf(D.cur.c).splice(i,1);save();render()}
+function sortS(k){const S=stuOf(D.cur.c);S.sort((a,b)=>k=='gr'?((parseInt(a.gr)||1e9)-(parseInt(b.gr)||1e9)):k=='g'?(GEN.indexOf(a.g)-GEN.indexOf(b.g)||(a.name||'').localeCompare(b.name||'')):(a.name||'').localeCompare(b.name||''));save();render();toast('↕️ ગોઠવાયું')}
+function moveS(i,cid){if(!cid)return;const S=stuOf(D.cur.c),s=S[i];if(!confirm(`${s.name} ને ${cName(clsBy(cid))} માં ખસેડવો છે? આ મહિનાની હાજરી પણ સાથે જશે.`)){render();return}
+ const y=Y();Object.keys(y.att).forEach(k=>{if(k.startsWith(D.cur.c+'|')&&y.att[k][s.id]){const nk=cid+'|'+k.split('|')[1];y.att[nk]=y.att[nk]||{};y.att[nk][s.id]=y.att[k][s.id];delete y.att[k][s.id]}});S.splice(i,1);stuOf(cid).push(s);save();render();toast('➡️ ખસેડાયો')}
+function bulkS(){modal(`<h3>📋 એક સાથે ઘણા વિદ્યાર્થી</h3><p style="color:var(--mut);margin-top:0;font-size:13.5px">દરેક લાઇનમાં એક વિદ્યાર્થી: <b>GR, નામ, કુમાર/કન્યા, કેટેગરી</b><br>કેટેગરી: અ. જા / અ. જ. જા / બક્ષી / અન્ય (SC/ST/SEBC/OPEN પણ ચાલે). Excel માંથી કૉલમ કૉપી કરી સીધું પેસ્ટ કરી શકાય.</p><textarea id="bulk" style="width:100%;min-height:200px;border:1.5px solid var(--bd);border-radius:12px;padding:10px;background:var(--bg)" placeholder="101, પટેલ આર્યન રમેશભાઈ, કુમાર, બક્ષી&#10;102, ચૌહાણ દિયા મહેશભાઈ, કન્યા, અ. જા"></textarea><div class="row" style="margin-top:12px"><button class="btn" onclick="doBulk()">ઉમેરો</button><button class="btn gh" onclick="closeModal()">બંધ</button></div>`)}
+const normCat=v=>{v=String(v||'').trim().toLowerCase().replace(/\s+/g,' ');if(!v)return'';if(/^(sc|અ\.? ?જા\.?|અનુસૂચિત જાતિ)$/.test(v)||v=='અ. જા')return'અ. જા';if(/^(st|અ\.? ?જ\.? ?જા\.?|અનુસૂચિત જનજાતિ)/.test(v)||v.includes('જ. જા'))return'અ. જ. જા';if(/sebc|obc|બક્ષી|બ\.?પ/.test(v))return'બક્ષી';if(/open|gen|અન્ય|સામાન્ય|ews/.test(v))return'અન્ય';return''};
+const normGen=v=>{v=String(v||'').trim().toLowerCase();if(/^(b|boy|m|male|કુમાર|છોકરો)/.test(v))return'કુમાર';if(/^(g|girl|f|female|કન્યા|છોકરી)/.test(v))return'કન્યા';return''};
+function doBulk(){const L=$('#bulk').value.split(/\n/).map(x=>x.trim()).filter(Boolean);const S=stuOf(D.cur.c);let n=0;L.forEach(l=>{const p=l.split(/\t|,|;/).map(x=>x.trim());let gr='',name='',g='',cat='';if(p.length==1)name=p[0];else if(/^\d+$/.test(p[0])){[gr,name,g,cat]=p}else{[name,g,cat]=p}if(!name)return;S.push({id:uid(),gr,name,g:normGen(g),cat:normCat(cat),mdm:true});n++});save();closeModal();render();toast(`✅ ${n} વિદ્યાર્થી ઉમેરાયા`)}
+
+/* new year / promotion */
+function newYearModal(){const ys=Object.keys(D.years).sort(),last=ys[ys.length-1]||ayOf(today());const ny=(+last.slice(0,4)+1)+'-'+pad((+last.slice(0,4)+2)%100);
+ modal(`<h3>🎓 નવું શૈક્ષણિક વર્ષ</h3><div class="fg"><label class="f"><span>નવું વર્ષ</span><input id="ny" value="${ny}" placeholder="2027-28"></label><label class="f"><span>આગલા વર્ષમાંથી</span><select id="nyFrom"><option value="">— ખાલી શરૂ કરો —</option>${ys.map(y=>`<option ${y==D.cur.y?'selected':''}>${y}</option>`).join('')}</select></label></div>
+ <div class="info" style="margin-top:12px">પ્રમોશન કરશો તો: બાલવાટિકા → ધોરણ ૧, ધોરણ ૧ → ૨ … ધોરણ ૭ → ૮. ધોરણ ૮ ના વિદ્યાર્થી "પાસ" તરીકે નવા વર્ષમાં નહીં જાય. શાળા છોડી ગયેલા પણ નહીં જાય. વર્ગ શિક્ષક અને વિભાગ જળવાશે; નવા બાલવાટિકા/ધો. ૧ પ્રવેશ પછી ઉમેરો.</div>
+ <label style="display:flex;gap:8px;align-items:center;margin:10px 0"><input type="checkbox" id="nyP" checked> વિદ્યાર્થીઓને આગળના ધોરણમાં ચડાવો (પ્રમોશન)</label>
+ <div class="row"><button class="btn" onclick="doNewYear()">✅ બનાવો</button><button class="btn gh" onclick="closeModal()">બંધ</button></div>`)}
+function doNewYear(){const ny=$('#ny').value.trim(),from=$('#nyFrom').value,pr=$('#nyP').checked;if(!/^\d{4}-\d{2}$/.test(ny))return toast('વર્ષ 2027-28 જેવા ફોર્મેટમાં લખો');if(D.years[ny]&&D.years[ny].classes.length&&!confirm(ny+' પહેલેથી છે. તેમાં ઉમેરવું છે?'))return;
+ const Y2=ensureYear(ny);let moved=0,passed=0;if(from){const F0=D.years[from];F0.classes.forEach(c=>{const tgtStd=pr?STDS[STDS.indexOf(c.std)+1]:c.std;let tc=null;
+  if(!pr||tgtStd){tc=Y2.classes.find(x=>x.std==(pr?tgtStd:c.std)&&(x.div||'')==(c.div||''));if(!tc){tc={id:uid(),std:pr?tgtStd:c.std,div:c.div,tid:pr?'':c.tid};Y2.classes.push(tc)}}
+  (F0.stu[c.id]||[]).forEach(s=>{if(s.left)return;if(!tc){passed++;return}Y2.stu[tc.id]=Y2.stu[tc.id]||[];if(!Y2.stu[tc.id].some(x=>x.id==s.id)){Y2.stu[tc.id].push({...s,adm:'',left:'',why:''});moved++}})});
+  if(pr)F0.classes.forEach(c=>{const tc=Y2.classes.find(x=>x.std==c.std&&(x.div||'')==(c.div||''));if(tc&&!tc.tid)tc.tid=c.tid});
+  if(pr&&!Y2.classes.some(x=>x.std=='બાલવાટિકા')&&F0.classes.some(x=>x.std=='બાલવાટિકા'))Y2.classes.push({id:uid(),std:'બાલવાટિકા',div:'',tid:(F0.classes.find(x=>x.std=='બાલવાટિકા')||{}).tid||''})}
+ D.cur.y=ny;const ms=ayMonths(ny);D.cur.m=ms.includes(ymOf(today()))?ymOf(today()):ms[0];D.cur.c=(classes()[0]||{}).id||'';save();closeModal();render();toast(`🎓 ${ny} તૈયાર · ${moved} વિદ્યાર્થી આગળ, ${passed} પાસ`)}
+</script>
+<script>
+/* ================= ATTENDANCE ================= */
+let showSum=false;
+function defDay(m){const t=today();const days=monthDays(m);if(ymOf(t)==m&&!dayInfo(t).off)return t;const c=D.cur.c;const S=stuOf(c);const w=days.filter(x=>!x.off&&x.ds<=t);for(const x of w){if(S.some(s=>active(s,x.ds)&&!cellOf(getA(c,m,s.id),x.d)))return x.ds}const f=days.find(x=>!x.off);return f?f.ds:m+'-01'}
+R.att=()=>{const C=classes();if(!clsBy(D.cur.c)&&C[0])D.cur.c=C[0].id;const c=clsBy(D.cur.c),m=D.cur.m;
+ if(!c){$('#v-att').innerHTML=`<div class="card">${empty('🎒','પહેલાં વર્ગ અને વિદ્યાર્થી ઉમેરો','cls')}</div>`;return}
+ if(!D.cur.d||ymOf(D.cur.d)!=m)D.cur.d=defDay(m);const st=mStats(c.id,m,today());
+ $('#v-att').innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><div><h2 style="margin:0">✅ હાજરી · ${esc(cName(c))}</h2><span style="color:var(--mut);font-size:13px">${mName(m)} · વર્ગ શિક્ષક: ${esc(tName(c.tid)||'—')}</span></div>
+  <div class="row"><button class="btn gh sm" onclick="showRep('reg')">🖨️ પત્રક PDF/Excel</button></div></div>
+  <div class="chips" style="margin-top:12px">${C.map(x=>`<button class="chip ${x.id==c.id?'on':''}" onclick="D.cur.c='${x.id}';D.cur.d='';save();render()">${esc(cShort(x))}</button>`).join('')}</div></div>
+ <div class="grid" style="margin-bottom:18px">
+  <div class="kpi pri"><div class="ic">📆</div><div class="k">${G(st.work)}</div><small>કામના દિવસ (આપોઆપ)</small></div>
+  <div class="kpi"><div class="ic">👥</div><div class="k">${G(st.reg.T)}</div><small>રજીસ્ટર સંખ્યા</small><div class="d">👦 ${G(st.reg['કુમાર'])} · 👧 ${G(st.reg['કન્યા'])}</div></div>
+  <div class="kpi ok"><div class="ic">📈</div><div class="k">${G(st.pc)}%</div><small>માસિક હાજરી</small><div class="bar"><i style="width:${st.pc}%"></i></div></div>
+  <div class="kpi"><div class="ic">⚖️</div><div class="k">${G(st.avg)}</div><small>સરેરાશ દૈનિક હાજરી</small><div class="d">👦 ${G(st.avgB)} · 👧 ${G(st.avgG)}</div></div>
+  <div class="kpi ${st.rows.some(r=>r.U)?'bad':'ok'}"><div class="ic">⏳</div><div class="k">${G(st.rows.reduce((a,r)=>a+r.U,0))}</div><small>આજ સુધી ભરવાના બાકી ખાના</small></div></div>
+ <div class="card" id="quick">${quickHtml(c,m)}</div>
+ <div class="card"><div class="row" style="justify-content:space-between;margin-bottom:10px"><div><h2 style="margin:0">🗓️ આખા મહિનાનું પત્રક</h2><span style="color:var(--mut);font-size:13px">ખાના પર ક્લિક: ખાલી → P → A → ખાલી · તારીખ પર ક્લિક: તે દિવસના ખાલી ખાના P</span></div>
+  <div class="row"><button class="btn gh sm" onclick="fillMonth()">✔ ખાલી ખાના P (આજ સુધી)</button><button class="btn gh sm" onclick="clearMonth()" style="color:var(--bad)">🧹 મહિનો ખાલી કરો</button><button class="btn gh sm" onclick="showSum=!showSum;render()">${showSum?'🔼':'🔽'} જાતવારી તારીજ</button></div></div>
+  <div class="tw" style="max-height:68vh" id="gridW">${gridHtml(c,m,st)}</div>
+  <div class="legend"><span><i style="background:color-mix(in srgb,var(--ok) 20%,transparent)"></i>P હાજર</span><span><i style="background:color-mix(in srgb,var(--bad) 22%,transparent)"></i>A ગેરહાજર</span><span><i style="background:color-mix(in srgb,var(--warn) 14%,transparent)"></i>ભરવાનું બાકી</span><span><i style="background:repeating-linear-gradient(135deg,#9993 0 4px,transparent 4px 8px)"></i>રવિવાર/રજા</span><span><i style="background:color-mix(in srgb,var(--mut) 14%,transparent)"></i>પ્રવેશ પહેલાં/છોડ્યા પછી</span></div>
+  ${showSum?sumHtml(st):''}</div>`};
+function quickHtml(c,m){const ds=D.cur.d,di=dayInfo(ds),d=+ds.slice(8);const days=monthDays(m).filter(x=>!x.off);const S=stuOf(c.id).filter(s=>active(s,ds));
+ const st=S.map(s=>({s,c:cellOf(getA(c.id,m,s.id),d)}));const p=st.filter(x=>x.c=='P').length,a=st.filter(x=>x.c=='A').length;
+ return `<div class="row" style="justify-content:space-between"><div><h2 style="margin:0">⚡ દિવસ મુજબ ઝડપી હાજરી</h2><span style="color:var(--mut);font-size:13px">"બાકી બધા હાજર" દબાવો, પછી ફક્ત ગેરહાજર વિદ્યાર્થી પર ક્લિક કરો (મોબાઇલ માટે ઉત્તમ)</span></div>
+  <div class="row"><button class="btn gh sm" onclick="qNav(-1)">◀</button><select onchange="D.cur.d=this.value;save();render()" style="border:1.5px solid var(--bd);border-radius:10px;padding:7px;font-weight:700;background:var(--card)">${days.map(x=>`<option value="${x.ds}" ${x.ds==ds?'selected':''}>${G(x.d)} ${MON[+m.slice(5)-1]} · ${WD[x.wd]}${x.ds==today()?' (આજે)':''}</option>`).join('')}</select><button class="btn gh sm" onclick="qNav(1)">▶</button></div></div>
+  ${di.off?`<div class="iss warn" style="margin-top:12px"><span>🏖️</span><span>${fd(ds)} – ${esc(di.label)} (રજા)</span></div>`:`<div class="row" style="margin:14px 0 10px"><button class="btn ok" onclick="qAll()">✔ બાકી બધા હાજર</button><span class="tag ok">હાજર ${G(p)}</span><span class="tag bad">ગેરહાજર ${G(a)}</span><span class="tag ${S.length-p-a?'warn':''}">બાકી ${G(S.length-p-a)}</span><span class="tag pri">${G(pct(p,p+a))}%</span></div>
+  <div class="chips">${st.map(x=>`<button class="chip" style="${x.c=='P'?'background:color-mix(in srgb,var(--ok) 15%,var(--card));border-color:var(--ok)':x.c=='A'?'background:color-mix(in srgb,var(--bad) 16%,var(--card));border-color:var(--bad);color:var(--bad);font-weight:700':''}" onclick="qT('${x.s.id}')">${x.c=='P'?'✔':x.c=='A'?'✖':'○'} ${esc(x.s.name||'—')}</button>`).join('')||'<span style="color:var(--mut)">આ દિવસે કોઈ સક્રિય વિદ્યાર્થી નથી</span>'}</div>`}`}
+function qNav(k){const days=monthDays(D.cur.m).filter(x=>!x.off).map(x=>x.ds);let i=days.indexOf(D.cur.d)+k;if(i<0||i>=days.length)return toast(k<0?'મહિનાનો પહેલો કાર્ય દિવસ':'મહિનાનો છેલ્લો કાર્ય દિવસ');D.cur.d=days[i];save();render()}
+function qAll(){const c=D.cur.c,m=D.cur.m,ds=D.cur.d,d=+ds.slice(8);let n=0;stuOf(c).forEach(s=>{if(active(s,ds)&&!cellOf(getA(c,m,s.id),d)){setA(c,m,s.id,d,'P');n++}});render();toast(`✔ ${n} વિદ્યાર્થી હાજર`)}
+function qT(sid){const c=D.cur.c,m=D.cur.m,d=+D.cur.d.slice(8);const v=cellOf(getA(c,m,sid),d);setA(c,m,sid,d,v=='A'?'P':'A');render()}
+function gridHtml(c,m,st){const days=st.days,t=today();
+ const hd=`<tr><th class="stk">GR · વિદ્યાર્થીનું નામ</th><th>જાતિ</th><th>કેટેગરી</th>${days.map(x=>`<th class="dh ${x.off?'off':''}" title="${esc(x.label||'તારીખ પર ક્લિક: ખાલી ખાના P')}" onclick="${x.off?`toast('${esc(x.label)} – રજા')`:`dayFill(${x.d})`}">${WD[x.wd]}<b>${x.d}</b></th>`).join('')}<th>હાજર</th><th>ગેર</th><th>%</th></tr>`;
+ const rows=st.rows.map((r,ri)=>`<tr><td class="stk" title="${esc(r.s.name)}"><b style="color:var(--mut);font-weight:600">${esc(r.s.gr||'')}</b> ${esc(r.s.name)}</td><td style="font-size:11px">${esc((r.s.g||'').slice(0,4))}</td><td style="font-size:11px">${esc(CATS_S[r.s.cat]||'')}</td>${days.map(x=>{const v=cellOf(r.str,x.d);if(x.off)return `<td class="c off">${v?'!':''}</td>`;if(!active(r.s,x.ds))return `<td class="c na">${v?'!':''}</td>`;return `<td class="c ${v||(x.ds<=t?'un':'')}" data-c="${r.s.id}|${x.d}">${v}</td>`}).join('')}<td class="tot" style="color:var(--ok)">${G(r.P)}</td><td class="tot" style="color:var(--bad)">${G(r.A)}</td><td class="tot">${G(r.pc)}</td></tr>`).join('');
+ const sm=(l,f)=>`<tr class="sum"><td class="stk">${l}</td><td></td><td></td>${days.map((x,i)=>`<td class="${x.off?'off':''}">${x.off?'':G(f(st.dayP[i]))}</td>`).join('')}<td></td><td></td><td></td></tr>`;
+ return st.rows.length?`<table class="ag">${hd}${rows}${sm('👦 હાજર કુમાર',x=>x.b)}${sm('👧 હાજર કન્યા',x=>x.g)}${sm('✔ કુલ હાજર',x=>x.p)}${sm('✖ ગેરહાજર',x=>x.a)}</table>`:empty('🧒','આ વર્ગમાં આ મહિને કોઈ વિદ્યાર્થી નથી','cls')}
+function sumHtml(st){const days=st.days;const rows=[];GEN.forEach(g=>{CATS.forEach(c=>{const a=st.gc[g+'|'+c];rows.push(`<tr><td class="stk">${g} · ${CATS_S[c]}</td>${days.map((x,i)=>`<td class="${x.off?'off':''}">${x.off?'':G(a[i])}</td>`).join('')}<td class="tot">${G(a.reduce((p,q)=>p+q,0))}</td></tr>`)});const T=days.map((x,i)=>CATS.reduce((p,c)=>p+st.gc[g+'|'+c][i],0));rows.push(`<tr class="sum"><td class="stk">કુલ ${g}</td>${days.map((x,i)=>`<td class="${x.off?'off':''}">${x.off?'':G(T[i])}</td>`).join('')}<td class="tot">${G(T.reduce((p,q)=>p+q,0))}</td></tr>`)});
+ return `<h3 style="margin:16px 0 8px">📋 જાતવારી તારીજ (દૈનિક હાજર સંખ્યા)</h3><div class="tw"><table class="ag"><tr><th class="stk">જાતિ · કેટેગરી</th>${days.map(x=>`<th class="${x.off?'off':''}">${x.d}</th>`).join('')}<th>કુલ</th></tr>${rows.join('')}</table></div>
+ <div class="row" style="margin-top:10px"><span class="tag pri">કામના દિવસ ${G(st.work)}</span><span class="tag">સરેરાશ કુમાર ${G(st.avgB)}</span><span class="tag">સરેરાશ કન્યા ${G(st.avgG)}</span><span class="tag ok">સરેરાશ કુલ ${G(st.avg)}</span></div>`}
+document.addEventListener('click',e=>{const td=e.target.closest('td.c[data-c]');if(!td)return;const[sid,d]=td.dataset.c.split('|');const c=D.cur.c,m=D.cur.m;const v=cellOf(getA(c,m,sid),+d);const n=v==''?'P':v=='P'?'A':'';setA(c,m,sid,+d,n);const st=mStats(c,m,today());const sc=$('#gridW').scrollLeft,sy=$('#gridW').scrollTop;$('#gridW').innerHTML=gridHtml(clsBy(c),m,st);$('#gridW').scrollLeft=sc;$('#gridW').scrollTop=sy;$('#quick').innerHTML=quickHtml(clsBy(c),m)});
+function dayFill(d){const c=D.cur.c,m=D.cur.m,ds=m+'-'+pad(d);let n=0;stuOf(c).forEach(s=>{if(active(s,ds)&&!cellOf(getA(c,m,s.id),d)){setA(c,m,s.id,d,'P');n++}});render();toast(n?`✔ ${d} તારીખે ${n} ખાના P`:'આ દિવસના બધા ખાના ભરેલા છે')}
+function fillMonth(){const c=D.cur.c,m=D.cur.m,t=today();let n=0;monthDays(m).forEach(x=>{if(x.off||x.ds>t)return;stuOf(c).forEach(s=>{if(active(s,x.ds)&&!cellOf(getA(c,m,s.id),x.d)){setA(c,m,s.id,x.d,'P');n++}})});render();toast(n?`✔ ${n} ખાલી ખાના P ભરાયા (આજ સુધી)`:'કોઈ ખાલી ખાનું નથી')}
+function clearMonth(){if(!confirm(mName(D.cur.m)+' ની આ વર્ગની બધી હાજરી ભૂંસવી છે?'))return;delete Y().att[aKey(D.cur.c,D.cur.m)];save();render();toast('🧹 ખાલી થયું')}
+
+/* ================= DAILY TARIJ ================= */
+function dailyData(ds){const m=ymOf(ds),d=+ds.slice(8);const z=()=>{const o={};CATS.forEach(c=>{o[c]={'કુમાર':0,'કન્યા':0}});return o};
+ const rows=classes().map(c=>{const r={c,reg:z(),pre:z(),mdm:z(),ab:{'કુમાર':0,'કન્યા':0},un:0};stuOf(c.id).forEach(s=>{if(!active(s,ds)||!s.g||!s.cat)return;r.reg[s.cat][s.g]++;const v=cellOf(getA(c.id,m,s.id),d);if(v=='P'){r.pre[s.cat][s.g]++;if(D.school.mdm&&s.mdm!==false)r.mdm[s.cat][s.g]++}else if(v=='A')r.ab[s.g]++;else r.un++});return r});
+ const add=(L,lbl)=>{const r={lbl,reg:z(),pre:z(),mdm:z(),ab:{'કુમાર':0,'કન્યા':0},un:0,tot:1};L.forEach(x=>{CATS.forEach(c=>GEN.forEach(g=>{r.reg[c][g]+=x.reg[c][g];r.pre[c][g]+=x.pre[c][g];r.mdm[c][g]+=x.mdm[c][g]}));GEN.forEach(g=>r.ab[g]+=x.ab[g]);r.un+=x.un});return r};
+ const lo=rows.filter(r=>STDS.indexOf(r.c.std)<=5),hi=rows.filter(r=>STDS.indexOf(r.c.std)>5);
+ const out=[...lo];if(lo.length)out.push(add(lo,'કુલ બાલવાટિકા થી ૫'));out.push(...hi);if(hi.length)out.push(add(hi,'કુલ ૬ થી ૮'));out.push(add(rows,'કુલ બાલવાટિકા થી ૮'));return{rows,out,G:add(rows,'')}}
+const sumG=(o,g)=>CATS.reduce((a,c)=>a+o[c][g],0);
+R.daily=()=>{const m=D.cur.m;if(!D.cur.d||ymOf(D.cur.d)!=m)D.cur.d=defDay(m);const ds=D.cur.d,di=dayInfo(ds);const dd=dailyData(ds),Gt=dd.G;
+ const regT=sumG(Gt.reg,'કુમાર')+sumG(Gt.reg,'કન્યા'),preT=sumG(Gt.pre,'કુમાર')+sumG(Gt.pre,'કન્યા');
+ const cell=(o)=>CATS.map(c=>GEN.map(g=>`<td>${G(o[c][g])}</td>`).join('')).join('');
+ $('#v-daily').innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><div><h2 style="margin:0">📊 દૈનિક જાતવારી તારીજ</h2><span style="color:var(--mut);font-size:13px">રજીસ્ટર, હાજર, ગેરહાજર અને મધ્યાહન ભોજન – ધોરણવાર, કેટેગરી અને કુમાર/કન્યા મુજબ (હાજરી પરથી આપોઆપ)</span></div>
+  <div class="row"><input type="date" value="${ds}" onchange="D.cur.d=this.value;if(ymOf(this.value)!=D.cur.m){D.cur.y=ayOf(this.value);ensureYear(D.cur.y);D.cur.m=ymOf(this.value)}save();render()" style="border:1.5px solid var(--bd);border-radius:10px;padding:8px;background:var(--card);font-weight:700"><button class="btn sm" onclick="showRep('daily')">🖨️ PDF / Excel</button></div></div></div>
+ ${di.off?`<div class="iss warn"><span>🏖️</span><span>${fd(ds)} – ${esc(di.label)}. આ દિવસે રજા છે.</span></div>`:''}
+ <div class="grid" style="margin-bottom:18px"><div class="kpi pri"><div class="ic">📋</div><div class="k">${G(regT)}</div><small>રજીસ્ટર સંખ્યા</small></div><div class="kpi ok"><div class="ic">✔</div><div class="k">${G(preT)}</div><small>હાજર (${G(pct(preT,regT))}%)</small></div><div class="kpi bad"><div class="ic">✖</div><div class="k">${G(Gt.ab['કુમાર']+Gt.ab['કન્યા'])}</div><small>ગેરહાજર</small></div><div class="kpi"><div class="ic">🍲</div><div class="k">${G(sumG(Gt.mdm,'કુમાર')+sumG(Gt.mdm,'કન્યા'))}</div><small>મધ્યાહન ભોજન લાભાર્થી</small></div>${Gt.un?`<div class="kpi bad"><div class="ic">⏳</div><div class="k">${G(Gt.un)}</div><small>હાજરી ન પુરાયેલ</small></div>`:''}</div>
+ <div class="card" style="padding:12px"><div class="tw"><table class="ag" style="font-size:12px"><tr><th rowspan="3" class="stk" style="min-width:150px">ધોરણ</th><th colspan="10">રજીસ્ટર સંખ્યા</th><th colspan="10">હાજર સંખ્યા</th><th colspan="3">ગેરહાજર</th><th colspan="8">મધ્યાહન ભોજન</th></tr>
+ <tr>${[0,1].map(()=>CATS.map(c=>`<th colspan="2">${CATS_S[c]}</th>`).join('')+'<th colspan="2">કુલ</th>').join('')}<th rowspan="2">કુ</th><th rowspan="2">ક</th><th rowspan="2">કુલ</th>${CATS.map(c=>`<th colspan="2">${CATS_S[c]}</th>`).join('')}</tr>
+ <tr>${'<th>કુ</th><th>ક</th>'.repeat(14)}</tr>
+ ${dd.out.map(r=>`<tr class="${r.tot?'sum':''}"><td class="stk">${r.tot?esc(r.lbl):esc(cName(r.c))}</td>${cell(r.reg)}<td class="tot">${G(sumG(r.reg,'કુમાર'))}</td><td class="tot">${G(sumG(r.reg,'કન્યા'))}</td>${cell(r.pre)}<td class="tot">${G(sumG(r.pre,'કુમાર'))}</td><td class="tot">${G(sumG(r.pre,'કન્યા'))}</td><td>${G(r.ab['કુમાર'])}</td><td>${G(r.ab['કન્યા'])}</td><td class="tot">${G(r.ab['કુમાર']+r.ab['કન્યા'])}</td>${cell(r.mdm)}</tr>`).join('')}</table></div>
+ <div class="legend"><span>કુ = કુમાર · ક = કન્યા</span><span>ગેરહાજરમાં ફક્ત "A" ગણાય છે; ન પુરાયેલ હાજરી અલગ દેખાય છે.</span><span>MDM = હાજર અને MDM ✔ વિદ્યાર્થી</span></div></div>`};
+
+/* ================= WINNERS ================= */
+function winnersOf(m,cid){const L=[];classes().filter(c=>!cid||c.id==cid).forEach(c=>{mStats(c.id,m).rows.forEach(r=>{if(r.act>=D.cfg.minDays&&r.act>0&&r.pc>=D.cfg.winPct)L.push({c,...r})})});return L.sort((a,b)=>b.pc-a.pc||b.P-a.P||STDS.indexOf(a.c.std)-STDS.indexOf(b.c.std))}
+R.win=()=>{const m=D.cur.m,W=winnersOf(m);const by={};W.forEach(w=>(by[w.c.id]=by[w.c.id]||[]).push(w));
+ $('#v-win').innerHTML=`<div class="card hero" style="padding:24px"><h1 style="font-size:30px">🏆 હાજરીમાં વિજેતા · ${mName(m)}</h1><p>માસિક ${G(D.cfg.winPct)}% કે વધુ હાજરી ધરાવતા વિદ્યાર્થી – ધોરણવાર અને સમગ્ર શાળા. પ્રમાણપત્ર પણ છાપી શકાય.</p>
+  <div class="row"><button class="btn acc" onclick="showRep('wcls')">🖨️ ધોરણવાર વિજેતા પત્રક</button><button class="btn wh" onclick="showRep('wsch')">🖨️ સમગ્ર શાળા વિજેતા પત્રક</button><button class="btn wh" onclick="showRep('cert')">🎖️ પ્રમાણપત્રો</button></div></div>
+ <div class="card"><h2>⚙️ વિજેતાનો માપદંડ</h2><div class="fg"><label class="f"><span>ઓછામાં ઓછી હાજરી (%)</span><input type="number" min="50" max="100" data-k="cfg.winPct" data-num="1" value="${D.cfg.winPct}" onchange="render()"></label><label class="f"><span>ઓછામાં ઓછા કામના દિવસ</span><input type="number" min="1" max="31" data-k="cfg.minDays" data-num="1" value="${D.cfg.minDays}" onchange="render()"></label></div></div>
+ <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+  <div class="card"><h2>🏫 સમગ્ર શાળા (${G(W.length)})</h2><p class="sub">હાજરી % પછી હાજર દિવસ મુજબ ક્રમ</p>${W.length?W.slice(0,30).map((w,i)=>`<div class="wcard" style="animation-delay:${i*.03}s"><span class="md">${i==0?'🥇':i==1?'🥈':i==2?'🥉':'🎖️'}</span><div><b>${esc(w.s.name)}</b><small>${esc(cName(w.c))} · GR ${esc(w.s.gr)} · ${G(w.P)}/${G(w.act)} દિવસ</small></div><span class="pc">${G(w.pc)}%</span></div>`).join('')+(W.length>30?`<small style="color:var(--mut)">… અને ${W.length-30} વધુ (પત્રકમાં બધા)</small>`:''):empty('🏆','આ મહિને હજુ કોઈ વિજેતા નથી')}</div>
+  <div class="card"><h2>📚 ધોરણવાર</h2><p class="sub">દરેક વર્ગના વિજેતા</p>${classes().map(c=>{const L=by[c.id]||[];return `<details ${L.length?'open':''}><summary>${esc(cName(c))} <span class="tag ${L.length?'ok':''}">${G(L.length)}</span></summary>${L.length?L.map(w=>`<div class="iss ok" style="margin-top:6px"><span>🏅</span><span><b>${esc(w.s.name)}</b> · ${esc(w.s.g)}</span><span class="go">${G(w.pc)}%</span></div>`).join(''):'<p>આ મહિને કોઈ નહીં</p>'}</details>`}).join('')||empty('🎒','વર્ગ નથી','cls')}</div></div>`};
+
+/* ================= CHECKS ================= */
+function issues(){const I=[];const a=(l,m,v,x)=>I.push([l,m,v,x||{}]);const s=D.school,C=classes(),t=today();
+ if(!s.name)a('bad','શાળાનું નામ ભરો','school');if(!s.udise)a('warn','UDISE / ડાયસ કોડ ભરો','school');if(!(s.off||[]).length)a('info','સાપ્તાહિક રજા પસંદ કરેલ નથી','school');
+ if(!C.length)a('bad','શૈ. વર્ષ '+D.cur.y+' માં હજુ કોઈ વર્ગ નથી','cls');
+ const dups=grDups();if(dups.size)a('bad','એક જ વર્ગમાં એક જ GR નંબર બે વિદ્યાર્થીને: '+[...dups].slice(0,5).map(x=>x.split('|')[1]).join(', '),'cls',{c:[...dups][0].split('|')[0]});const xd=grCross();if(xd)a('info',`${xd} GR નંબર એક કરતાં વધુ વર્ગમાં છે (શાળાનો GR નંબર અજોડ હોવો જોઈએ; વર્ગવાર ક્રમ નંબર હોય તો અવગણો)`,'cls');
+ C.forEach(c=>{const S=stuOf(c.id),nm=cName(c);if(!c.tid)a('warn',nm+': વર્ગ શિક્ષક પસંદ કરો','cls',{c:c.id});else{const T=D.teachers.find(x=>x.id==c.tid);if(T&&T.left)a('warn',nm+': વર્ગ શિક્ષક છૂટા થયેલ છે, નવા શિક્ષક પસંદ કરો','cls',{c:c.id})}
+  const bad={gr:0,name:0,g:0,cat:0,dob:0,lft:0};const names={};S.forEach(x=>{if(!x.gr)bad.gr++;if(!x.name)bad.name++;else{names[x.name.trim()]=(names[x.name.trim()]||0)+1}if(!x.g)bad.g++;if(!x.cat)bad.cat++;if(x.dob&&x.dob>t)bad.dob++;if(x.left&&x.adm&&x.left<x.adm)bad.lft++});
+  if(bad.name)a('bad',`${nm}: ${bad.name} વિદ્યાર્થીનું નામ ખાલી`,'cls',{c:c.id});if(bad.g)a('bad',`${nm}: ${bad.g} વિદ્યાર્થીની જાતિ (કુમાર/કન્યા) પસંદ કરો`,'cls',{c:c.id});if(bad.cat)a('bad',`${nm}: ${bad.cat} વિદ્યાર્થીની કેટેગરી પસંદ કરો`,'cls',{c:c.id});if(bad.gr)a('warn',`${nm}: ${bad.gr} વિદ્યાર્થીનો GR નંબર ખાલી`,'cls',{c:c.id});if(bad.dob)a('bad',`${nm}: ${bad.dob} વિદ્યાર્થીની જન્મ તારીખ ભવિષ્યની`,'cls',{c:c.id});if(bad.lft)a('bad',`${nm}: શાળા છોડ્યા તારીખ પ્રવેશ પહેલાંની`,'cls',{c:c.id});
+  const dn=Object.entries(names).filter(([k,v])=>v>1).map(([k])=>k);if(dn.length)a('info',`${nm}: એક જ નામ બે વાર – ${dn.slice(0,3).join(', ')}`,'cls',{c:c.id});
+  const st=mStats(c.id,D.cur.m,t);const U=st.rows.reduce((p,r)=>p+r.U,0),B=st.rows.reduce((p,r)=>p+r.bad,0);if(U)a('warn',`${nm}: ${mName(D.cur.m)} માં આજ સુધીના ${U} ખાના હાજરી બાકી`,'att',{c:c.id});if(B)a('warn',`${nm}: રજા/પ્રવેશ પહેલાં/છોડ્યા પછીના દિવસે ${B} હાજરી નોંધ (! નિશાની)`,'att',{c:c.id});
+  if(S.length>60)a('info',`${nm}: ${S.length} વિદ્યાર્થી – વર્ગ વિભાજન વિચારો`,'cls',{c:c.id})});
+ D.teachers.forEach(x=>{if(!x.name)a('bad','શિક્ષકનું નામ ખાલી છે','teach');else if(!x.mob&&!x.left)a('info',x.name+': મોબાઇલ નંબર ખાલી','teach');else if(x.mob&&!/^\d{10}$/.test(String(x.mob).replace(/\D/g,'').slice(-10)))a('warn',x.name+': મોબાઇલ નંબર ૧૦ અંકનો નથી','teach')});
+ if(!D.teachers.length)a('warn','શિક્ષકોની યાદી ખાલી છે','teach');
+ const O={bad:0,warn:1,info:2,ok:3};I.sort((x,y)=>O[x[0]]-O[y[0]]);return I}
+const IC={bad:'⛔',warn:'⚠️',info:'ℹ️',ok:'✅'};let LAST=[];
+function issHtml(L,max){LAST=L;return L.slice(0,max||L.length).map((x,j)=>`<div class="iss ${x[0]} j" onclick="jump(${j})"><span>${IC[x[0]]}</span><span>${esc(x[1])}</span><span class="go">સુધારો →</span></div>`).join('')}
+function jump(j){const x=LAST[j];if(!x)return;if(x[3].c)D.cur.c=x[3].c;go(x[2])}
+R.check=()=>{const I=issues();const n=l=>I.filter(x=>x[0]==l).length;$('#v-check').innerHTML=`<div class="card"><h2>🛡️ ભૂલ ચકાસણી</h2><p class="sub">ડેટા એન્ટ્રીની ભૂલો આપોઆપ પકડાય છે. મુદ્દા પર ક્લિક કરતાં સીધા સુધારવાની જગ્યાએ પહોંચશો. (ભૂલવાળું ખાનું લાલ દેખાય છે.)</p>
+ <div class="row" style="margin-bottom:12px"><span class="tag bad">⛔ ${G(n('bad'))} ભૂલ</span><span class="tag warn">⚠️ ${G(n('warn'))} ચેતવણી</span><span class="tag">ℹ️ ${G(n('info'))} જાણકારી</span></div>
+ ${issHtml(I)||'<div class="iss ok"><span>✅</span><span>કોઈ ભૂલ નથી – ઉત્તમ! 🎉</span></div>'}</div>
+ <div class="card"><h2>🔎 શું શું ચકાસાય છે?</h2><div class="grid">${[['🏫','શાળાનું નામ, UDISE, સાપ્તાહિક રજા'],['🧒','નામ, GR, કુમાર/કન્યા, કેટેગરી ખાલી; ડુપ્લિકેટ GR/નામ'],['📅','ભવિષ્યની જન્મ તારીખ, પ્રવેશ પહેલાં છોડ્યા તારીખ'],['✅','આજ સુધીની બાકી હાજરી; રજા કે પ્રવેશ પહેલાંના દિવસે નોંધ'],['👩‍🏫','વર્ગ શિક્ષક ન હોય; છૂટા થયેલ શિક્ષક; મોબાઇલ નંબર'],['📊','વર્ગમાં ૬૦ થી વધુ વિદ્યાર્થી']].map(x=>`<div class="feat"><div class="fi">${x[0]}</div><div><small style="color:var(--tx)">${x[1]}</small></div></div>`).join('')}</div></div>`};
+</script>
+<script>
+/* ================= REPORT ENGINE ================= */
+const RPP={L:30,Pt:40};
+const sch=()=>D.school;
+function pgHead(M,pi,pn){const s=sch();return `<div class="ph"><div><h1>${esc(M.title)}</h1><div class="s">${esc(s.name||'શાળાનું નામ')}${s.taluka?' · તા. '+esc(s.taluka):''}${s.district?' · જિ. '+esc(s.district):''}${s.udise?' · UDISE: '+esc(s.udise):''}</div></div><div class="r">${M.right||''}${pn>1?`<br>પાનું ${G(pi+1)}/${G(pn)}`:''}</div></div>${M.meta?`<div class="meta">${M.meta}</div>`:''}`}
+const td_=(c,th)=>{const T=th?'th':'td';if(c==null)c='';if(typeof c!='object')return `<${T}>${esc(G(c))}</${T}>`;return `<${T}${c.cs>1?` colspan="${c.cs}"`:''}${c.rs>1?` rowspan="${c.rs}"`:''}${c.c?` class="${c.c}"`:''}${c.st?` style="${c.st}"`:''}>${c.h!=null?c.h:esc(G(c.v??''))}</${T}>`};
+const trs=(rows,th,cls)=>rows.map(r=>{const rc=r.cls||cls||'';const cells=r.cells||r;return `<tr${rc?` class="${rc}"`:''}>${cells.map(c=>td_(c,th)).join('')}</tr>`}).join('');
+function modelPages(M){const o=M.orient=='P'?'Pt':'L',rpp=M.rpp||RPP[o];const rows=M.rows||[],foot=M.foot||[];const chunks=[];
+ for(let i=0;i<Math.max(rows.length,1);i+=rpp)chunks.push(rows.slice(i,i+rpp));const last=chunks[chunks.length-1];const footCap=M.footCap!=null?M.footCap:rpp;
+ let footOwn=false;if(foot.length&&last.length+foot.length>footCap+(M.after?-4:0))footOwn=true;if(footOwn)chunks.push([]);
+ return chunks.map((ch,i)=>{const isLast=i==chunks.length-1;return `<div class="pg ${o} ${D.cfg.bw?'bw':''}" style="--dc:${D.cfg.dc}">${pgHead(M,i,chunks.length)}${M.html?M.html:`<table class="rt">${M.cols?`<colgroup>${M.cols.map(w=>`<col style="width:${w}">`).join('')}</colgroup>`:''}<thead>${trs(M.heads||[],1)}</thead><tbody>${trs(ch)}${isLast&&foot.length?trs(foot,0,'ft'):''}</tbody></table>`}${isLast&&M.after?M.after:''}${D.cfg.brand?`<div class="pf"><span>Prepared with <b>EasyTech™</b> Hajri Patrak · 9722222606</span><span>${esc(fd(today()))}</span></div>`:''}</div>`})}
+const sigs=(L)=>`<div class="sig">${L.map(x=>`<div>${x}</div>`).join('')}</div>`;
+/* --- models --- */
+function mReg(cid,m,blank){const c=clsBy(cid),st=mStats(cid,m);const days=st.days;const rs2={rs:2};
+ const heads=[[{v:'GR નં.',...rs2},{v:'વિદ્યાર્થીનું નામ',...rs2},{v:'જાતિ',...rs2},{v:'કેટેગરી',...rs2},...days.map(x=>({v:WD[x.wd].slice(0,2),c:x.off?'off':''})),{v:'હાજર',...rs2},{v:'ગેર હાજર',...rs2},{v:'%',...rs2}],days.map(x=>({v:x.d,c:x.off?'off':''}))];
+ const rows=st.rows.map(r=>[r.s.gr||'',{v:r.s.name,c:'l'},r.s.g||'',CATS_S[r.s.cat]||'',...days.map(x=>{if(x.off)return{v:'',c:'off'};if(!active(r.s,x.ds))return{v:'–',c:'off'};const v=blank?'':cellOf(r.str,x.d);return{v,c:v=='A'?'A':''}}),blank?'':{v:r.P,c:'b'},blank?'':r.A,blank?'':r.pc]);
+ const foot=[];if(!blank){GEN.forEach(g=>{CATS.forEach(k=>{const a=st.gc[g+'|'+k];foot.push([{v:g+' · '+CATS_S[k],cs:4,c:'l'},...days.map((x,i)=>x.off?{v:'',c:'off'}:a[i]),{v:a.reduce((p,q)=>p+q,0),cs:3,c:'b'}])});const T=days.map((x,i)=>CATS.reduce((p,k)=>p+st.gc[g+'|'+k][i],0));foot.push({cls:'gt',cells:[{v:'કુલ '+g,cs:4,c:'l'},...days.map((x,i)=>x.off?{v:'',c:'off'}:T[i]),{v:T.reduce((p,q)=>p+q,0),cs:3}]})});
+  foot.push({cls:'gt',cells:[{v:'કુલ હાજર વિદ્યાર્થીઓ',cs:4,c:'l'},...days.map((x,i)=>x.off?{v:'',c:'off'}:st.dayP[i].p),{v:st.totP,cs:3}]})}
+ const meta=`<span>ધોરણ: <b>${esc(cName(c))}</b></span><span>વર્ગ શિક્ષક: <b>${esc(tName(c.tid)||'')}</b></span><span>મહિનો: <b>${mName(m)}</b></span><span>શૈ. વર્ષ: <b>${esc(D.cur.y)}</b></span>${blank?'':`<span>કામના દિવસ: <b>${G(st.work)}</b></span><span>રજીસ્ટર: <b>કુ ${G(st.reg['કુમાર'])} · ક ${G(st.reg['કન્યા'])} · કુલ ${G(st.reg.T)}</b></span>`}`;
+ const after=blank?sigs(['વર્ગ શિક્ષકની સહી','આચાર્યની સહી']):`<div class="note">સરેરાશ દૈનિક હાજરી: કુમાર <b>${G(st.avgB)}</b> · કન્યા <b>${G(st.avgG)}</b> · કુલ <b>${G(st.avg)}</b> · માસિક હાજરી <b>${G(st.pc)}%</b> · (સરેરાશ = કુલ હાજરી ÷ કામના દિવસ)</div>${sigs(['વર્ગ શિક્ષકની સહી','આચાર્યની સહી'])}`;
+ return{orient:'L',title:blank?'હાજરી પત્રક (કોરું)':'માસિક હાજરી પત્રક',right:`${mName(m)}<br>${esc(cName(c))}`,meta,heads,rows,foot,after,rpp:blank?32:30,footCap:16,sheet:cShort(c),xw:[6,24,6,8,...days.map(()=>3.3),6,6,6]}}
+function mDaily(ds){const dd=dailyData(ds);const cell=o=>CATS.flatMap(c=>GEN.map(g=>o[c][g]));
+ const heads=[[{v:'ધોરણ',rs:3},{v:'રજીસ્ટર સંખ્યા',cs:10},{v:'હાજર સંખ્યા',cs:10},{v:'ગેરહાજર સંખ્યા',cs:3},{v:'મધ્યાહન ભોજનમાં ભાગ લીધેલ સંખ્યા',cs:8},{v:'શિક્ષકની સહી',rs:3}],
+  [...[0,1].flatMap(()=>[...CATS.map(c=>({v:CATS_S[c],cs:2})),{v:'કુલ',cs:2}]),{v:'કુમાર',rs:2},{v:'કન્યા',rs:2},{v:'કુલ',rs:2},...CATS.map(c=>({v:CATS_S[c],cs:2}))],
+  Array(14).fill(0).flatMap(()=>['કુ','ક'])];
+ const rows=dd.out.map(r=>({cls:r.tot?'gt':'',cells:[{v:r.tot?r.lbl:cName(r.c),c:'l'},...cell(r.reg),sumG(r.reg,'કુમાર'),sumG(r.reg,'કન્યા'),...cell(r.pre),sumG(r.pre,'કુમાર'),sumG(r.pre,'કન્યા'),r.ab['કુમાર'],r.ab['કન્યા'],r.ab['કુમાર']+r.ab['કન્યા'],...cell(r.mdm),r.tot?'':tName(r.c.tid).split(' ')[0]||'']}));
+ const di=dayInfo(ds);return{orient:'L',title:'દૈનિક જાતવારી તારીજ',right:`તારીખ: ${fd(ds)}<br>${WD[di.wd]}વાર`,meta:`<span>શૈ. વર્ષ: <b>${esc(D.cur.y)}</b></span>${di.off?`<span style="color:#c1121f">રજા: ${esc(di.label)}</span>`:''}${dd.G.un?`<span>ન પુરાયેલ હાજરી: <b>${G(dd.G.un)}</b></span>`:''}<span>કુ = કુમાર · ક = કન્યા</span>`,heads,rows,after:sigs(['MDM સંચાલકની સહી','આચાર્યની સહી']),rpp:22,sheet:'તારીજ '+ds.slice(8)+'-'+ds.slice(5,7),xw:[16,...Array(36).fill(4.2),10]}}
+function mSum(m){const C=classes();const rows=[];let T={b:0,g:0,t:0,P:0,act:0,w:0,lo:0};
+ C.forEach((c,i)=>{const st=mStats(c.id,m);const w=st.rows.filter(r=>r.act>=D.cfg.minDays&&r.act>0&&r.pc>=D.cfg.winPct).length,lo=st.rows.filter(r=>r.act&&r.pc<D.cfg.lowPct).length;T.b+=st.reg['કુમાર'];T.g+=st.reg['કન્યા'];T.t+=st.reg.T;T.P+=st.totP;T.act+=st.totAct;T.w+=w;T.lo+=lo;
+  rows.push([i+1,{v:cName(c),c:'l'},{v:tName(c.tid),c:'l'},st.reg['કુમાર'],st.reg['કન્યા'],{v:st.reg.T,c:'b'},st.work,st.totP,st.avgB,st.avgG,{v:st.avg,c:'b'},{v:st.pc+'%',c:st.pc<D.cfg.lowPct?'A':'b'},w,lo])});
+ const foot=[{cls:'gt',cells:[{v:'કુલ શાળા',cs:3},T.b,T.g,T.t,'',T.P,'','','',pct(T.P,T.act)+'%',T.w,T.lo]}];
+ return{orient:'L',title:'માસિક હાજરી સારાંશ (સમગ્ર શાળા)',right:mName(m),meta:`<span>શૈ. વર્ષ: <b>${esc(D.cur.y)}</b></span><span>વિજેતા: ≥${G(D.cfg.winPct)}% · ઓછી હાજરી: <${G(D.cfg.lowPct)}%</span>`,heads:[[{v:'ક્રમ',rs:2},{v:'ધોરણ',rs:2},{v:'વર્ગ શિક્ષક',rs:2},{v:'રજીસ્ટર સંખ્યા',cs:3},{v:'કામના દિવસ',rs:2},{v:'કુલ હાજરી',rs:2},{v:'સરેરાશ દૈનિક હાજરી',cs:3},{v:'હાજરી %',rs:2},{v:'વિજેતા',rs:2},{v:'ઓછી હાજરી',rs:2}],['કુમાર','કન્યા','કુલ','કુમાર','કન્યા','કુલ']],rows,foot,after:sigs(['તૈયાર કરનારની સહી','આચાર્યની સહી']),sheet:'સારાંશ',xw:[5,16,24,7,7,7,8,9,8,8,8,8,7,8]}}
+const wHead=['ક્રમ','GR નં.','વિદ્યાર્થીનું નામ','જાતિ','કેટેગરી','કામના દિવસ','હાજર દિવસ','હાજરી %'];
+function mWcls(m){const rows=[];classes().forEach(c=>{const W=winnersOf(m,c.id);rows.push({cls:'gt',cells:[{v:cName(c)+(c.tid?' · વર્ગ શિક્ષક: '+tName(c.tid):'')+` · વિજેતા: ${W.length}`,cs:8,c:'l'}]});if(!W.length)rows.push([{v:'આ મહિને કોઈ નહીં',cs:8}]);W.forEach((w,i)=>rows.push([i+1,w.s.gr,{v:w.s.name,c:'l b'},w.s.g,CATS_S[w.s.cat]||'',w.act,w.P,{v:w.pc+'%',c:'b'}]))});
+ return{orient:'P',title:'ધોરણવાર માસિક હાજરી વિજેતા પત્રક',right:mName(m),meta:`<span>માપદંડ: <b>${G(D.cfg.winPct)}% કે વધુ હાજરી</b></span><span>શૈ. વર્ષ: <b>${esc(D.cur.y)}</b></span>`,heads:[wHead],rows,after:sigs(['વર્ગ શિક્ષકની સહી','આચાર્યની સહી']),sheet:'ધોરણવાર વિજેતા',xw:[6,9,30,8,10,9,9,9]}}
+function mWsch(m){const W=winnersOf(m);let rk=0,prev=null;const rows=W.map((w,i)=>{const k=w.pc+'|'+w.P;if(k!==prev){rk=i+1;prev=k}return[{v:rk<=3?['🥇','🥈','🥉'][rk-1]+' '+rk:rk,c:rk<=3?'hl':''},{v:cShort(w.c)},w.s.gr,{v:w.s.name,c:'l b'},w.s.g,CATS_S[w.s.cat]||'',`${w.P}/${w.act}`,{v:w.pc+'%',c:'b'}]});
+ if(!rows.length)rows.push([{v:'આ મહિને કોઈ વિજેતા નથી',cs:8}]);
+ return{orient:'P',title:'સમગ્ર શાળા – માસિક હાજરી વિજેતા',right:mName(m),meta:`<span>માપદંડ: <b>${G(D.cfg.winPct)}% કે વધુ</b></span><span>કુલ વિજેતા: <b>${G(W.length)}</b></span>`,heads:[['ક્રમ','ધોરણ','GR નં.','વિદ્યાર્થીનું નામ','જાતિ','કેટેગરી','હાજર/કામના','હાજરી %']],rows,after:sigs(['આચાર્યની સહી']),sheet:'શાળા વિજેતા',xw:[8,9,9,30,8,10,11,9]}}
+function mLow(m){const L=[];classes().forEach(c=>mStats(c.id,m).rows.forEach(r=>{if(r.act&&r.pc<D.cfg.lowPct)L.push({c,...r})}));L.sort((a,b)=>a.pc-b.pc);
+ return{orient:'P',title:'ઓછી હાજરીવાળા વિદ્યાર્થી (વાલી સંપર્ક યાદી)',right:mName(m),meta:`<span>માપદંડ: <b>${G(D.cfg.lowPct)}% થી ઓછી હાજરી</b></span><span>કુલ: <b>${G(L.length)}</b></span>`,heads:[['ક્રમ','ધોરણ','GR નં.','વિદ્યાર્થીનું નામ','જાતિ','હાજર','ગેરહાજર','%','વાલી સંપર્ક / રીમાર્ક']],rows:L.length?L.map((r,i)=>[i+1,cShort(r.c),r.s.gr,{v:r.s.name,c:'l'},r.s.g,r.P,{v:r.A,c:'A'},{v:r.pc+'%',c:'b'},'']):[[{v:'કોઈ નથી 🎉',cs:9}]],after:sigs(['વર્ગ શિક્ષકની સહી','આચાર્યની સહી']),sheet:'ઓછી હાજરી',xw:[5,8,8,26,7,6,7,6,22]}}
+function mStu(cid){const c=clsBy(cid),S=stuOf(cid);const B=S.filter(s=>!s.left&&s.g=='કુમાર').length,Gn=S.filter(s=>!s.left&&s.g=='કન્યા').length;
+ return{orient:'P',title:'વિદ્યાર્થી યાદી',right:`${esc(cName(c))}<br>શૈ. વર્ષ ${esc(D.cur.y)}`,meta:`<span>વર્ગ શિક્ષક: <b>${esc(tName(c.tid))}</b></span><span>કુમાર <b>${G(B)}</b> · કન્યા <b>${G(Gn)}</b> · કુલ <b>${G(B+Gn)}</b></span>`,heads:[['ક્રમ','GR નં.','વિદ્યાર્થીનું નામ','જાતિ','કેટેગરી','જન્મ તારીખ','પ્રવેશ તારીખ','MDM','સ્થિતિ']],rows:S.map((s,i)=>[i+1,s.gr,{v:s.name,c:'l'},s.g,CATS_S[s.cat]||'',fd(s.dob),fd(s.adm),s.mdm!==false?'✔':'',s.left?{v:'છોડ્યા '+fd(s.left)+(s.why?' ('+s.why+')':''),c:'A'}:'ચાલુ']),after:sigs(['વર્ગ શિક્ષકની સહી','આચાર્યની સહી']),sheet:'યાદી '+cShort(c),xw:[5,8,28,7,9,11,11,6,18]}}
+function mTeach(){return{orient:'P',title:'શિક્ષકોની યાદી',right:'શૈ. વર્ષ '+esc(D.cur.y),heads:[['ક્રમ','શિક્ષકનું નામ','હોદ્દો','મોબાઇલ','જન્મ તારીખ','હાજર થયા','વર્ગ શિક્ષક','સ્થિતિ']],rows:D.teachers.map((t,i)=>[i+1,{v:t.name,c:'l'},t.desig||'',t.mob||'',fd(t.dob),fd(t.join),classes().filter(c=>c.tid==t.id).map(cShort).join(', '),t.left?'છૂટા '+fd(t.left):'કાર્યરત']),after:sigs(['આચાર્યની સહી']),sheet:'શિક્ષકો',xw:[5,28,16,12,11,11,12,12]}}
+function mYear(cid){const c=clsBy(cid),ms=ayMonths(D.cur.y);const ST=ms.map(m=>mStats(cid,m));const S=stuOf(cid);
+ const rows=S.map(s=>{let P=0,A=0;const cells=ST.map(st=>{const r=st.rows.find(x=>x.s.id==s.id);if(!r||!r.act)return'';P+=r.P;A+=r.act;return r.P});return[s.gr,{v:s.name,c:'l'},s.g,CATS_S[s.cat]||'',...cells,{v:P,c:'b'},A,{v:pct(P,A)+'%',c:'b'}]});
+ return{orient:'L',title:'વાર્ષિક વિદ્યાર્થીવાર હાજરી',right:`${esc(cName(c))}<br>શૈ. વર્ષ ${esc(D.cur.y)}`,meta:`<span>વર્ગ શિક્ષક: <b>${esc(tName(c.tid))}</b></span><span>દરેક મહિનામાં હાજર દિવસ</span>`,heads:[[{v:'GR',rs:2},{v:'વિદ્યાર્થીનું નામ',rs:2},{v:'જાતિ',rs:2},{v:'કેટેગરી',rs:2},...ms.map(m=>MON[+m.slice(5)-1].slice(0,4)),{v:'કુલ હાજર',rs:2},{v:'કુલ કામના',rs:2},{v:'%',rs:2}],ms.map((m,i)=>({v:'કામ '+ST[i].work,st:'font-weight:400'}))],rows,after:sigs(['વર્ગ શિક્ષકની સહી','આચાર્યની સહી']),sheet:'વાર્ષિક '+cShort(c),xw:[6,26,7,8,...ms.map(()=>7),8,8,7]}}
+function mCal(){const ms=ayMonths(D.cur.y),a=ms[0]+'-01',b=ms[11]+'-31';const L=Object.entries(D.hol).filter(([d])=>d>=a&&d<=b).sort();const wk=ms.map(m=>monthDays(m).filter(x=>!x.off).length);
+ return{orient:'P',title:'શાળા રજા કેલેન્ડર',right:'શૈ. વર્ષ '+esc(D.cur.y),meta:`<span>કુલ કામના દિવસ: <b>${G(wk.reduce((p,q)=>p+q,0))}</b></span>`,heads:[['ક્રમ','તારીખ','વાર','વિગત','પ્રકાર']],rows:L.length?L.map(([d,h],i)=>[i+1,fd(d),WD[new Date(d).getDay()],{v:h.t,c:'l'},h.w?'કાર્ય દિવસ':'રજા']):[[{v:'રજા ઉમેરેલ નથી',cs:5}]],after:`<h3 style="margin:14px 0 6px;font-size:14px">મહિનાવાર કામના દિવસ</h3><table class="rt"><tr>${ms.map(m=>`<th>${MON[+m.slice(5)-1].slice(0,4)}</th>`).join('')}<th>કુલ</th></tr><tr>${wk.map(w=>`<td>${G(w)}</td>`).join('')}<td class="b">${G(wk.reduce((p,q)=>p+q,0))}</td></tr></table>`,sheet:'રજા કેલેન્ડર',xw:[6,12,8,40,12]}}
+function certPages(m,cid){const W=winnersOf(m,cid);const s=sch();return W.map((w,i)=>`<div class="pg L ${D.cfg.bw?'bw':''}" style="--dc:${D.cfg.dc}"><div class="cert"><div style="font-size:15px;color:#555">${esc(s.name||'')}${s.taluka?' · તા. '+esc(s.taluka):''}${s.district?' · જિ. '+esc(s.district):''}</div><div class="medal">🏆</div><div class="cb1">પ્રશંસા પત્ર</div><p>આથી પ્રમાણિત કરવામાં આવે છે કે</p><div class="nm">${esc(w.s.name)}</div><p>${esc(cName(w.c))} ના વિદ્યાર્થીએ <b>${mName(m)}</b> માસમાં <b>${G(w.act)}</b> કામના દિવસમાંથી <b>${G(w.P)}</b> દિવસ હાજર રહી <b>${G(w.pc)}%</b> હાજરી નોંધાવી છે. નિયમિતતા અને શિસ્ત બદલ શાળા પરિવાર તરફથી હાર્દિક અભિનંદન! 🌟</p><div class="csig"><div>તારીખ: ${fd(today())}</div><div>વર્ગ શિક્ષક<br>${esc(tName(w.c.tid))}</div><div>આચાર્ય<br>${esc(s.principal||'')}</div></div></div>${D.cfg.brand?`<div class="pf" style="bottom:4px"><span>EasyTech™</span><span></span></div>`:''}</div>`)}
+/* --- registry --- */
+const REPS=[
+ {id:'reg',e:'🗓️',t:'માસિક હાજરી પત્રક (ધોરણ)',d:'Excel જેવું પૂરું પત્રક + જાતવારી તારીજ',p:'cls',f:p=>[mReg(p.cls,D.cur.m)]},
+ {id:'regall',e:'📚',t:'માસિક હાજરી પત્રક – બધા ધોરણ',d:'દરેક ધોરણનું પત્રક, Excel માં અલગ શીટ',f:()=>classes().map(c=>mReg(c.id,D.cur.m))},
+ {id:'daily',e:'📊',t:'દૈનિક જાતવારી તારીજ',d:'રજીસ્ટર, હાજર, ગેરહાજર, MDM',p:'date',f:p=>[mDaily(p.date)]},
+ {id:'msum',e:'📈',t:'માસિક શાળા સારાંશ',d:'ધોરણવાર સરેરાશ હાજરી અને %',f:()=>[mSum(D.cur.m)]},
+ {id:'wcls',e:'🏅',t:'ધોરણવાર હાજરી વિજેતા',d:'દરેક વર્ગના માસિક વિજેતા',f:()=>[mWcls(D.cur.m)]},
+ {id:'wsch',e:'🏆',t:'સમગ્ર શાળા હાજરી વિજેતા',d:'ક્રમ સાથે શાળાની યાદી',f:()=>[mWsch(D.cur.m)]},
+ {id:'cert',e:'🎖️',t:'વિજેતા પ્રશંસા પત્ર',d:'દરેક વિજેતા માટે સુંદર પ્રમાણપત્ર (PDF)',p:'clsAll',pdfOnly:1,pages:p=>certPages(D.cur.m,p.cls)},
+ {id:'low',e:'📞',t:'ઓછી હાજરી – વાલી સંપર્ક',d:`${D.cfg.lowPct}% થી ઓછી હાજરીવાળા`,f:()=>[mLow(D.cur.m)]},
+ {id:'year',e:'📅',t:'વાર્ષિક વિદ્યાર્થીવાર હાજરી',d:'જૂન થી મે, દરેક મહિનાના હાજર દિવસ',p:'cls',f:p=>[mYear(p.cls)]},
+ {id:'blank',e:'📝',t:'કોરું હાજરી પત્રક',d:'નામ સાથે, હાથથી ભરવા માટે',p:'cls',f:p=>[mReg(p.cls,D.cur.m,1)]},
+ {id:'stu',e:'🧒',t:'વિદ્યાર્થી યાદી',d:'GR, જાતિ, કેટેગરી, પ્રવેશ, સ્થિતિ',p:'cls',f:p=>[mStu(p.cls)]},
+ {id:'teach',e:'👩‍🏫',t:'શિક્ષક યાદી',d:'હોદ્દો, મોબાઇલ, વર્ગ',f:()=>[mTeach()]},
+ {id:'cal',e:'🏖️',t:'રજા કેલેન્ડર',d:'રજાઓ અને મહિનાવાર કામના દિવસ',f:()=>[mCal()]}];
+let repSel='reg',repP={cls:'',date:''};
+function showRep(id){repSel=id;repP.cls=D.cur.c;go('rep')}
+function repModels(){const r=REPS.find(x=>x.id==repSel);const p={cls:repP.cls||D.cur.c,date:repP.date||D.cur.d||defDay(D.cur.m)};if(r.p=='cls'&&!clsBy(p.cls))return[];return r.f?r.f(p):[]}
+function repPages(){const r=REPS.find(x=>x.id==repSel);const p={cls:repSel=='cert'?repP.cls:(repP.cls||D.cur.c),date:repP.date||D.cur.d||defDay(D.cur.m)};if(r.pages)return r.pages(p);return repModels().flatMap(modelPages)}
+R.rep=()=>{if(!classes().length){$('#v-rep').innerHTML=`<div class="card">${empty('🖨️','પત્રક બનાવવા પહેલાં વર્ગ અને વિદ્યાર્થી ઉમેરો','cls')}</div>`;return}const r=REPS.find(x=>x.id==repSel);
+ $('#v-rep').innerHTML=`<div class="card"><h2>🖨️ રિપોર્ટ અને પ્રિન્ટ</h2><p class="sub">${mName(D.cur.m)} · A4 પેજ સેટઅપ સાથે તૈયાર. PDF સીધી છાપી શકાય; Excel માં ફોર્મેટિંગ, પ્રિન્ટ ટાઇટલ અને "Fit to width" સેટ છે.</p><div class="rcards">${REPS.map(x=>`<button class="rcard ${x.id==repSel?'on':''}" onclick="repSel='${x.id}';render()"><span class="e">${x.e}</span><b>${x.t}</b><small>${x.d}</small></button>`).join('')}</div></div>
+ <div class="card"><div class="row" style="justify-content:space-between;margin-bottom:12px"><div><h2 style="margin:0">${r.e} ${r.t}</h2><span style="color:var(--mut);font-size:13px">${r.d}</span></div>
+  <div class="row">${r.p=='cls'||r.p=='clsAll'?clsSel(r.p=='clsAll'?repP.cls:(repP.cls||D.cur.c),`onchange="repP.cls=this.value;render()" style="border:1.5px solid var(--bd);border-radius:10px;padding:8px;background:var(--card);font-weight:700"`,r.p=='clsAll'):''}${r.p=='date'?`<input type="date" value="${repP.date||D.cur.d||defDay(D.cur.m)}" onchange="repP.date=this.value;render()" style="border:1.5px solid var(--bd);border-radius:10px;padding:8px;background:var(--card);font-weight:700">`:''}
+  <button class="btn" onclick="dlPdf()">⬇️ PDF</button>${r.pdfOnly?'':'<button class="btn ok" onclick="dlXlsx()">📗 Excel</button>'}<button class="btn wa" onclick="sharePdf()">📲 શેર</button></div></div>
+  <div class="pvbox" id="pvbox"><div class="pvin anim" id="pv"></div></div></div>`;
+ const P=repPages();const el=$('#pv');el.innerHTML=P.length?P.join(''):'<div class="empty"><div class="e">📭</div>આ પત્રક માટે માહિતી નથી</div>';const w=$('#pvbox').clientWidth-40;const pw=P.length&&P[0].includes('pg Pt')?794:1123;el.style.zoom=Math.min(1,w/pw)};
+
+/* ================= LIBS + EXPORT ================= */
+const LIBS={h2c:['https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js','https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js'],jspdf:['https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js','https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js'],xl:['https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js','https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js']};
+const ready={h2c:()=>window.html2canvas,jspdf:()=>window.jspdf,xl:()=>window.ExcelJS};
+async function need(...ks){for(const k of ks){if(ready[k]())continue;let ok=false;for(const u of LIBS[k]){ok=await new Promise(r=>{const s=document.createElement('script');s.src=u;s.onload=()=>r(true);s.onerror=()=>{s.remove();r(false)};document.head.appendChild(s)});if(ok&&ready[k]())break}if(!ready[k]())throw new Error('lib')}}
+const fname=ext=>{const r=REPS.find(x=>x.id==repSel);const c=clsBy(repP.cls||D.cur.c);return(r.t+' - '+(r.p=='cls'&&c?cShort(c)+' - ':'')+(r.p=='date'?fd(repP.date||D.cur.d).replace(/\//g,'-'):mName(D.cur.m))+' - '+(D.school.name||'School')).replace(/[\\/:*?"<>|]+/g,' ').replace(/\s+/g,' ').trim()+'.'+ext};
+function saveB(b,n){const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),6000)}
+async function mkPdf(){await need('h2c','jspdf');const P=repPages();if(!P.length)throw new Error('empty');let pdf=null;const w=document.createElement('div');w.className='cap';document.body.appendChild(w);
+ try{if(document.fonts)await document.fonts.ready;for(let i=0;i<P.length;i++){toast(`⏳ PDF બની રહી છે… ${i+1}/${P.length}`);w.innerHTML=P[i];const el=w.firstElementChild;const L=el.classList.contains('L');await new Promise(r=>setTimeout(r,40));
+  const c=await html2canvas(el,{scale:2,backgroundColor:'#ffffff',useCORS:true,scrollX:0,scrollY:0,windowWidth:1400,windowHeight:1400,logging:false});
+  if(!pdf)pdf=new window.jspdf.jsPDF({orientation:L?'l':'p',unit:'mm',format:'a4',compress:true});else pdf.addPage('a4',L?'l':'p');pdf.addImage(c.toDataURL('image/jpeg',.92),'JPEG',0,0,L?297:210,L?210:297)}
+  pdf.setProperties({title:fname('pdf'),author:'EasyTech™ · Shaikh Sakilahemad',creator:'EasyTech™ Hajri Patrak'});return pdf.output('blob')}finally{w.remove()}}
+async function dlPdf(){try{saveB(await mkPdf(),fname('pdf'));toast('✅ PDF ડાઉનલોડ થઈ')}catch(e){toast(e.message=='lib'?'❌ પહેલી વાર PDF માટે ઇન્ટરનેટ જરૂરી છે':e.message=='empty'?'📭 માહિતી નથી':'❌ PDF બની શકી નહીં')}}
+async function sharePdf(){try{const b=await mkPdf(),n=fname('pdf'),f=new File([b],n,{type:'application/pdf'});if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:n});return}catch(e){if(e.name=='AbortError')return}}saveB(b,n);toast('✅ PDF ડાઉનલોડ થઈ – વોટ્સએપમાં જોડો');setTimeout(()=>window.open('https://wa.me/?text='+encodeURIComponent(n+' – EasyTech™'),'_blank'),800)}catch(e){toast('❌ શેર થઈ શક્યું નહીં')}}
+/* Excel */
+const XF='Shruti';
+function sheetName(n,used){let s=String(n||'Sheet').replace(/[\\/*?:\[\]]/g,' ').slice(0,28).trim()||'Sheet';let k=s,i=2;while(used.has(k))k=s.slice(0,25)+' '+(i++);used.add(k);return k}
+function placeRows(ws,rows,r0,ncol,style){const occ={};let r=r0;rows.forEach(row=>{const cells=row.cells||row;let c=1;cells.forEach(cell=>{while(occ[r+'|'+c])c++;const o=typeof cell=='object'&&cell!==null?cell:{v:cell};const cs=o.cs||1,rs=o.rs||1;let v=o.v??'';if(typeof v=='string'&&/^-?\d+(\.\d+)?$/.test(v.trim())&&!/^0\d/.test(v.trim()))v=+v;
+  const x=ws.getCell(r,c);x.value=v===''?null:v;style(x,o,row);for(let i=0;i<rs;i++)for(let j=0;j<cs;j++){occ[(r+i)+'|'+(c+j)]=1;if(i||j)style(ws.getCell(r+i,c+j),o,row)}if(cs>1||rs>1)ws.mergeCells(r,c,r+rs-1,c+cs-1);c+=cs});r++});return r}
+const bd={top:{style:'thin'},left:{style:'thin'},bottom:{style:'thin'},right:{style:'thin'}};
+function hexArgb(h){return'FF'+h.replace('#','').toUpperCase()}
+function addSheet(wb,M,used){const ncol=(M.heads[0]||[]).reduce((a,c)=>a+((c&&c.cs)||1),0)||1;const L=M.orient!='P';
+ const ws=wb.addWorksheet(sheetName(M.sheet||M.title,used),{pageSetup:{paperSize:9,orientation:L?'landscape':'portrait',fitToPage:true,fitToWidth:1,fitToHeight:0,horizontalCentered:true,margins:{left:.25,right:.25,top:.45,bottom:.45,header:.2,footer:.2}},headerFooter:{oddFooter:'&L&8EasyTech™ Hajri Patrak&R&8પાનું &P / &N'},properties:{defaultRowHeight:16}});
+ const s=sch();const title=(r,v,sz,bold,col)=>{ws.mergeCells(r,1,r,ncol);const c=ws.getCell(r,1);c.value=v;c.font={name:XF,size:sz,bold,color:col?{argb:col}:undefined};c.alignment={horizontal:'center',vertical:'middle',wrapText:true};ws.getRow(r).height=sz*1.7};
+ title(1,s.name||'',15,true,hexArgb(D.cfg.bw?'#111111':D.cfg.dc));title(2,[s.taluka&&'તાલુકો: '+s.taluka,s.district&&'જિલ્લો: '+s.district,s.udise&&'UDISE: '+s.udise].filter(Boolean).join('    '),10,false);
+ title(3,M.title+'  ·  '+String(M.right||'').replace(/<br>/g,'  ·  ').replace(/<[^>]+>/g,''),12,true);
+ const meta=String(M.meta||'').replace(/<\/span>/g,'    ').replace(/<[^>]+>/g,'').trim();if(meta)title(4,meta,10,false);
+ const h0=meta?6:5;const hs=(x,o)=>{x.font={name:XF,size:9,bold:true};x.alignment={horizontal:'center',vertical:'middle',wrapText:true};x.border=bd;x.fill={type:'pattern',pattern:'solid',fgColor:{argb:o.c&&o.c.includes('off')?'FFD9D9D9':'FFE6ECFB'}}};
+ let r=placeRows(ws,M.heads,h0,ncol,hs);const hEnd=r-1;
+ const bs=(x,o,row)=>{const gt=row&&row.cls=='gt';x.font={name:XF,size:9,bold:gt||(o.c&&/\bb\b/.test(o.c)),color:o.c&&o.c.includes('A')?{argb:'FFC1121F'}:undefined};x.alignment={horizontal:o.c&&o.c.split(' ').includes('l')?'left':'center',vertical:'middle',wrapText:false};x.border=bd;
+  const fill=o.c&&o.c.includes('off')?'FFE8E8E8':o.c&&o.c.includes('hl')?'FFFFF4D6':gt?'FFDDE5F8':(row&&row.cls=='ft')?'FFF4F6FB':null;if(fill)x.fill={type:'pattern',pattern:'solid',fgColor:{argb:fill}}};
+ r=placeRows(ws,M.rows||[],r,ncol,bs);if(M.foot&&M.foot.length)r=placeRows(ws,M.foot,r,ncol,(x,o,row)=>bs(x,o,row&&row.cls?row:{cls:'ft'}));
+ const af=String(M.after||'').replace(/<\/div>/g,'\n').replace(/<[^>]+>/g,' ').split('\n').map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean);
+ if(af.length){r++;af.forEach(t=>{ws.mergeCells(r,1,r,ncol);const c=ws.getCell(r,1);c.value=t;c.font={name:XF,size:10};c.alignment={wrapText:true,vertical:'middle'};r++})}
+ (M.xw||[]).forEach((w,i)=>{if(i<ncol)ws.getColumn(i+1).width=w});
+ ws.pageSetup.printTitlesRow=h0+':'+hEnd;ws.views=[{state:'frozen',ySplit:hEnd,xSplit:0}];return ws}
+async function dlXlsx(){try{toast('⏳ Excel બની રહી છે…');await need('xl');const Ms=repModels();if(!Ms.length)return toast('📭 માહિતી નથી');const wb=new ExcelJS.Workbook();wb.creator='EasyTech™ · Shaikh Sakilahemad';wb.created=new Date();const used=new Set();Ms.forEach(M=>addSheet(wb,M,used));
+ const buf=await wb.xlsx.writeBuffer();saveB(new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),fname('xlsx'));toast('✅ Excel ડાઉનલોડ થઈ (A4, Fit to width)')}catch(e){console.error(e);toast(e.message=='lib'?'❌ પહેલી વાર Excel માટે ઇન્ટરનેટ જરૂરી છે':'❌ Excel બની શકી નહીં')}}
+</script>
+<script>
+/* ================= SETTINGS ================= */
+const DCS=['#1d3fae','#6a3cf0','#0a8a66','#c2500c','#0e7490','#d0306a','#111111'];
+R.set=()=>{const c=D.cfg;const sw=(k,l,s)=>`<div class="tgl"><div>${l}${s?`<small>${s}</small>`:''}</div><label class="sw2"><input type="checkbox" ${c[k]?'checked':''} onchange="D.cfg.${k}=this.checked;save()"><i></i></label></div>`;
+ $('#v-set').innerHTML=`<div class="card"><h2>🎨 થીમ</h2><p class="sub">${Object.keys(TH).length} આકર્ષક થીમ – લાઇટ અને ડાર્ક. ઉપરના 🎨 બટનથી પણ બદલી શકાય.</p><div class="thc">${Object.entries(TH).map(([k,t])=>`<div class="tcard ${c.theme==k?'on':''}" data-theme="${k}" onclick="setTheme('${k}');render()"><div class="pv"><i style="width:28%;background:linear-gradient(180deg,${t.sb1},${t.sb2})"></i><i style="flex:1;background:${t.bg};padding:8px"><b style="display:block;height:10px;width:70%;border-radius:4px;background:${t.pri}"></b><b style="display:block;height:7px;width:45%;border-radius:4px;background:${t.acc};margin-top:6px"></b><b style="display:block;height:16px;border-radius:5px;background:${t.card};margin-top:7px;border:1px solid ${t.bd}"></b></i></div>${t.n}</div>`).join('')}</div>
+  <div class="fg" style="margin-top:16px"><label class="f"><span>અક્ષરનું કદ: <b>${c.uiFz}px</b></span><input type="range" min="13" max="18" value="${c.uiFz}" oninput="D.cfg.uiFz=+this.value;applyTheme();save();this.previousElementSibling.querySelector('b').textContent=this.value+'px'" style="accent-color:var(--pri)"></label></div></div>
+ <div class="card"><h2>🖨️ પત્રક / પ્રિન્ટ</h2><div class="f" style="margin-bottom:10px"><span>પત્રકનો મુખ્ય રંગ</span><div class="row">${DCS.map(x=>`<span onclick="D.cfg.dc='${x}';save();render()" style="width:32px;height:32px;border-radius:50%;background:${x};cursor:pointer;box-shadow:0 0 0 ${c.dc==x?3:1}px ${c.dc==x?'var(--pri)':'var(--bd)'};border:3px solid var(--card)"></span>`).join('')}</div></div>
+  ${sw('bw','🖨️ કાળું-સફેદ પ્રિન્ટ','રંગ વગર, શાહી બચે')}${sw('gdig','🔢 પત્રકમાં ગુજરાતી અંક','૧૨૩ / 123')}${sw('brand','💎 EasyTech™ ફૂટર','પાનાના તળિયે નાનું બ્રાન્ડિંગ')}
+  <div class="fg" style="margin-top:14px"><label class="f"><span>🏆 વિજેતા માટે હાજરી (%)</span><input type="number" min="50" max="100" value="${c.winPct}" onchange="D.cfg.winPct=+this.value||100;save()"></label><label class="f"><span>📞 ઓછી હાજરી ગણવાની મર્યાદા (%)</span><input type="number" min="10" max="100" value="${c.lowPct}" onchange="D.cfg.lowPct=+this.value||75;save()"></label></div></div>
+ <div class="card"><h2>💾 ડેટા, બેકઅપ અને આયાત</h2><p class="sub">માહિતી ફક્ત આ બ્રાઉઝરમાં સચવાય છે. દર અઠવાડિયે બેકઅપ ફાઇલ ડાઉનલોડ કરી રાખો; બીજા ફોન/કમ્પ્યુટરમાં "બેકઅપ ખોલો"થી પાછી આવશે.</p>
+  <div class="row"><button class="btn" onclick="expJ()">💾 બેકઅપ ડાઉનલોડ</button><button class="btn gh" onclick="$('#fJson').click()">📂 બેકઅપ ખોલો</button><button class="btn gh" onclick="importX()">📥 જૂની Excel હાજરી આયાત</button><button class="btn gh" onclick="fillDemo()">🧪 નમૂના માહિતી</button></div>
+  <div class="row" style="margin-top:12px"><button class="btn gh" style="color:var(--bad)" onclick="delYear()">🗑️ શૈ. વર્ષ ${esc(D.cur.y)} દૂર કરો</button><button class="btn rd" onclick="resetAll()">⚠️ બધું ભૂંસો (નવી શાળા)</button></div>
+  <p style="font-size:12.5px;color:var(--mut);margin:12px 0 0">વપરાયેલ સંગ્રહ: ${(JSON.stringify(D).length/1024).toFixed(1)} KB</p></div>`};
+function expJ(){saveB(new Blob([JSON.stringify(D)],{type:'application/json'}),('Hajri Backup - '+(D.school.name||'School')+' - '+today()).replace(/[\\/:*?"<>|]+/g,' ')+'.json');toast('💾 બેકઅપ ડાઉનલોડ થયું')}
+$('#fJson').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;f.text().then(t=>{const o=JSON.parse(t);if(!o||!o.years)throw 0;if(!confirm('હાલની માહિતીને બદલે બેકઅપની માહિતી લાવવી છે?'))return;D=Object.assign(DEF(),o);D.school=Object.assign({...SCH0},o.school||{});D.cfg=Object.assign({...CFG0},o.cfg||{});applyTheme();save();go('dash');toast('✅ બેકઅપમાંથી માહિતી પાછી આવી')}).catch(()=>toast('❌ આ ફાઇલ યોગ્ય બેકઅપ નથી'))};
+function delYear(){const ys=Object.keys(D.years);if(ys.length<2)return toast('ઓછામાં ઓછું એક વર્ષ જરૂરી છે');if(!confirm('શૈ. વર્ષ '+D.cur.y+' ની બધી માહિતી દૂર કરવી છે? (પહેલાં બેકઅપ લો)'))return;delete D.years[D.cur.y];D.cur.y=Object.keys(D.years).sort().pop();D.cur.m=ayMonths(D.cur.y)[0];D.cur.c='';save();go('dash')}
+function resetAll(){if(!confirm('બધી માહિતી કાયમી ભૂંસવી છે? (પહેલાં બેકઅપ લઈ લેવો)'))return;if(prompt('ખાતરી માટે DELETE લખો')!=='DELETE')return;const c=D.cfg;D=DEF();D.cfg=c;D.cur.y=ayOf(today());ensureYear(D.cur.y);D.cur.m=ymOf(today());save();go('dash');toast('🗑️ નવી શરૂઆત')}
+
+/* ================= EXCEL IMPORT ================= */
+function importX(){$('#fXlsx').click()}
+$('#fXlsx').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{toast('⏳ Excel વાંચી રહ્યા છીએ…');await need('xl');const wb=new ExcelJS.Workbook();await wb.xlsx.load(await f.arrayBuffer());const res=parseWB(wb);toast(`✅ આયાત: ${res.cls} વર્ગ, ${res.stu} વિદ્યાર્થી, ${res.att} હાજરી નોંધ`);go('cls')}catch(err){console.error(err);toast(err.message=='lib'?'❌ ઇન્ટરનેટ ચાલુ રાખી ફરી પ્રયત્ન કરો':'❌ ફાઇલ વાંચી શકાઈ નહીં: '+(err.message||''))}};
+const xv=c=>{let v=c&&c.value;if(v&&typeof v=='object'){if(v.richText)v=v.richText.map(x=>x.text).join('');else if('result' in v)v=v.result;else if(v.text)v=v.text;else if(v instanceof Date)v=v.toISOString().slice(0,10)}return v==null?'':v};
+const normMon=s=>String(s).trim().replace(/ઑ/g,'ઓ').replace(/\s+/g,'');
+function parseWB(wb){let cls=0,stu=0,att=0;wb.eachSheet(ws=>{const nm=ws.name.trim();if(/તારીજ|summary/i.test(nm))return;
+ const a1=String(xv(ws.getCell('A1'))).trim(),a2=String(xv(ws.getCell('A2'))),b3=String(xv(ws.getCell('B3'))),b4=parseInt(xv(ws.getCell('B4'))),p1=String(xv(ws.getCell('P1')));
+ const mi=MON.findIndex(x=>normMon(x)==normMon(b3));if(mi<0||!b4)return;const m=b4+'-'+pad(mi+1);
+ if(a1&&!D.school.name)D.school.name=a1;const tk=a2.match(/તાલુકો\s*:\s*([^\s]+(?:\s[^\s:]+)?)\s+જી/);if(tk&&!D.school.taluka)D.school.taluka=tk[1].trim();const ds=a2.match(/જી(?:લ્લો)?\s*:\s*(.+)$/);if(ds&&!D.school.district)D.school.district=ds[1].trim();
+ const ay=ayOf(m+'-01');const Yr=ensureYear(ay);let std='',div='';const low=nm.toLowerCase();if(/bal|બાલ/.test(low))std='બાલવાટિકા';else{const mm=nm.match(/^(\d)\s*-?\s*([A-Za-z])?/);if(!mm)return;std=mm[1];div=(mm[2]||'').toUpperCase()}if(!STDS.includes(std))return;
+ let tn=p1.includes(':')?p1.split(':').slice(1).join(':').trim():p1.trim();let tid='';if(tn){let t=D.teachers.find(x=>x.name.replace(/\s+/g,' ').trim()==tn.replace(/\s+/g,' '));if(!t){t={id:uid(),name:tn.replace(/\s+/g,' '),desig:'મદદનીશ શિક્ષક'};D.teachers.push(t)}tid=t.id}
+ let c=Yr.classes.find(x=>x.std==std&&(x.div||'')==div);if(!c){c={id:uid(),std,div,tid};Yr.classes.push(c);cls++}else if(!c.tid)c.tid=tid;
+ const S=Yr.stu[c.id]=Yr.stu[c.id]||[];const dcol={};for(let col=5;col<=40;col++){const h=parseInt(xv(ws.getCell(7,col)));if(h>=1&&h<=dim(m))dcol[col]=h}
+ for(let r=8;r<=ws.rowCount;r++){const gr=xv(ws.getCell(r,1)),name=String(xv(ws.getCell(r,2))).trim();if(!name||typeof gr!='number'&&!/^\d+$/.test(String(gr)))continue;if(/કુલ|જાતવારી|summary/i.test(name))continue;
+  let s=S.find(x=>String(x.gr)==String(gr)&&x.name==name)||S.find(x=>x.name==name);if(!s){s={id:uid(),gr:String(gr),name,g:normGen(xv(ws.getCell(r,3))),cat:normCat(xv(ws.getCell(r,4))),mdm:true};S.push(s);stu++}
+  Object.entries(dcol).forEach(([col,d])=>{const v=String(xv(ws.getCell(r,+col))).trim().toUpperCase();if(v=='P'||v=='A'){const k=aKey(c.id,m);Yr.att[k]=Yr.att[k]||{};let st=(Yr.att[k][s.id]||'').padEnd(dim(m),'.');st=st.slice(0,d-1)+v+st.slice(d);Yr.att[k][s.id]=st.replace(/\.+$/,'');att++}})}
+ D.cur.y=ay;D.cur.m=m;if(!D.cur.c||!clsBy(D.cur.c))D.cur.c=c.id});save();return{cls,stu,att}}
+
+/* ================= DEMO ================= */
+function fillDemo(){if(classes().length&&!confirm('નમૂના માહિતી ઉમેરવી છે? (હાલના વર્ષમાં નમૂના વર્ગ ઉમેરાશે)'))return;
+ const fn=['આરવ','વિહાન','દેવ','કૃષ્ણા','ધ્રુવ','યશ','હર્ષ','મીત','જય','પાર્થ','રોહન','સાહિલ'],ff=['દિયા','કાવ્યા','ધ્રુવી','પ્રિયા','જાનવી','નિશા','હેતલ','મહેક','ખુશી','રિયા','ઈશા','પૂજા'],ln=['પટેલ','ચૌહાણ','પરમાર','રાઠોડ','ડામોર','ગામીત','વસાવા','ઠાકોર','સોલંકી','મકવાણા','જોષી','દેસાઈ'];
+ if(!D.school.name)Object.assign(D.school,{name:'નમૂના પ્રાથમિક શાળા (ડેમો)',udise:'24000000000',taluka:'નમૂના',district:'નમૂના',principal:'નમૂના આચાર્ય',cluster:'નમૂના CRC'});
+ const T=[['મહેતા અનિતાબેન','બાલવાટિકા શિક્ષક'],['પટેલ રમેશભાઈ','મદદનીશ શિક્ષક'],['શાહ કિરણબેન','મદદનીશ શિક્ષક'],['ચૌધરી દિનેશભાઈ','વિદ્યાસહાયક']].map(x=>{const t={id:uid(),name:x[0]+' (ડેમો)',desig:x[1],mob:'9'+String(Math.floor(Math.random()*1e9)).padStart(9,'0'),join:'2015-06-15'};D.teachers.push(t);return t});
+ const Yr=Y(),m=D.cur.m,t=today();let gr=100+Math.floor(Math.random()*800);
+ [['બાલવાટિકા',''],['3',''],['6','A'],['8','']].forEach((x,ci)=>{if(Yr.classes.some(c=>c.std==x[0]&&(c.div||'')==x[1]))return;const c={id:uid(),std:x[0],div:x[1],tid:T[ci].id};Yr.classes.push(c);const S=Yr.stu[c.id]=[];const n=12+Math.floor(Math.random()*8);
+  for(let i=0;i<n;i++){const g=i%2?'કન્યા':'કુમાર';S.push({id:uid(),gr:String(gr++),name:ln[Math.floor(Math.random()*ln.length)]+' '+(g=='કુમાર'?fn:ff)[Math.floor(Math.random()*12)],g,cat:CATS[[0,1,1,2,2,2,3,3][Math.floor(Math.random()*8)]],mdm:Math.random()>.05,dob:(2026-6-STDS.indexOf(x[0]))+'-0'+(1+Math.floor(Math.random()*9))+'-1'+Math.floor(Math.random()*9)})}
+  const A=Yr.att[aKey(c.id,m)]={};S.forEach((s,i)=>{const rate=i%7==0?.7:i%3==0?1:.94;A[s.id]=monthDays(m).map(dd=>dd.off||dd.ds>t?'.':Math.random()<rate?'P':'A').join('').replace(/\.+$/,'')})});
+ D.cur.c=Yr.classes[0].id;save();go('dash');toast('🧪 નમૂના માહિતી ઉમેરાઈ – બધાં ટેબ ફરી જુઓ!')}
+
+/* ================= STATIC PAGES ================= */
+R.feat=()=>{$('#v-feat').innerHTML=`<div class="card hero"><h1>✨ સ્માર્ટ હાજરી પત્રકની ખાસિયતો</h1><p>તમારી Excel ફાઇલનો ઊંડો અભ્યાસ કરી, તેની બધી સુવિધાઓ સાથે વધુ સ્માર્ટ, ભૂલ-રહિત અને સુંદર સ્વરૂપ.</p></div>
+ <div class="card"><h2>🚀 મુખ્ય સુવિધાઓ</h2><div class="grid">${[['🏫','કોઈ પણ શાળા માટે','શાળાનું નામ, UDISE, તાલુકો, જિલ્લો, CRC, આચાર્ય – દરેક પત્રકમાં આપોઆપ.'],['📅','વર્ષ અને મહિના મુજબ','જૂન થી મે શૈક્ષણિક વર્ષ; દરેક મહિનાની હાજરી અલગ, વર્ષ બદલતાં જૂની માહિતી સલામત.'],['🎓','પ્રમોશન એક ક્લિકમાં','નવા વર્ષમાં બધા વિદ્યાર્થી આગળના ધોરણમાં, ધો. ૮ પાસ આપોઆપ બહાર.'],['🧒','વિદ્યાર્થી ઉમેરો/બાદ કરો','પ્રવેશ તારીખ અને શાળા છોડ્યા તારીખ સાથે – જૂની હાજરી ભૂંસાય નહીં.'],['👩‍🏫','શિક્ષક વ્યવસ્થાપન','ઉમેરો, વર્ગ ફાળવો, બદલી/નિવૃત્તિ નોંધો.'],['⚡','ઝડપી હાજરી','"બાકી બધા હાજર" પછી ફક્ત ગેરહાજર પર ટૅપ – મોબાઇલ પર સેકન્ડોમાં.'],['🗓️','સાચું કેલેન્ડર','મહિનાના ૨૮–૩૧ દિવસ, સાચા વાર, રવિવાર અને રજાઓ આપોઆપ; કામના દિવસની ગણતરી આપોઆપ.'],['📊','જાતવારી તારીજ','કુમાર/કન્યા × અ.જા./અ.જ.જા./બક્ષી/અન્ય – દૈનિક અને માસિક, MDM સાથે.'],['🏆','હાજરી વિજેતા','ધોરણવાર અને સમગ્ર શાળા, ક્રમ સાથે; સુંદર પ્રશંસા પત્ર.'],['📞','ઓછી હાજરી યાદી','વાલી સંપર્ક માટે આપોઆપ યાદી.'],['🛡️','ભૂલ પકડ','ખાલી/ખોટી માહિતી, ડુપ્લિકેટ GR, બાકી હાજરી – લાલ નિશાની અને સીધો સુધારો.'],['🖨️','PDF + Excel','૧૩ પત્રકો, A4 પેજ સેટઅપ, Fit to width, પ્રિન્ટ ટાઇટલ સાથે.'],['📥','જૂની Excel આયાત','તમારી હાલની હાજરી Excel ફાઇલ સીધી આયાત થાય.'],['🎨','૧૦ થીમ','લાઇટ અને ડાર્ક – તમારી પસંદ.'],['🔒','૧૦૦% ખાનગી','માહિતી ફક્ત તમારા ઉપકરણમાં; બેકઅપ સુવિધા.']].map(x=>`<div class="feat"><div class="fi">${x[0]}</div><div><b>${x[1]}</b><small>${x[2]}</small></div></div>`).join('')}</div></div>
+ <div class="card"><h2>🔬 તમારી Excel ફાઇલનો અભ્યાસ અને સુધારા</h2><p class="sub">ફાઇલમાં ૧૧ વર્ગની શીટ (બાલવાટિકા, ૧–૫, ૬A/6B, ૭B, ૮A/8B) અને "તારીજ દૈનિક" શીટ હતી.</p><div class="tw"><table class="dt"><tr><th>Excel માં</th><th>આ ટૂલમાં</th></tr>${[['દરેક વર્ગ માટે અલગ શીટ, શાળા/શિક્ષકનું નામ દરેકમાં ફરી લખવું પડે','શાળા એક વાર; વર્ગ-શિક્ષક ફાળવણી; બધાં પત્રકમાં આપોઆપ'],['વારનાં મથાળાં (Sun, Mon…) સ્થિર, ૩૦ તારીખ સુધી જ, વચ્ચે એક ખાલી કૉલમ','દરેક મહિનાના સાચા દિવસ (૨૮–૩૧) અને સાચા વાર આપોઆપ'],['"કામના દિવસ" ૨૫ જાતે લખેલ','રવિવાર/રજા બાદ કરી આપોઆપ ગણતરી'],['"રવિવાર/તહેવાર" કૉલમ "L/WFH" ગણતાં હતાં (ખોટું લેબલ)','રજા કેલેન્ડરથી સાચી રજા; વિદ્યાર્થીવાર હાજર/ગેરહાજર/%'],['COUNTIF માં જાતિ કૉલમ પણ ગણાતી; KUL માં બેવડો સરવાળો','સ્વચ્છ ગણતરી, ભૂલ-ચકાસણી સાથે'],['જાતવારી તારીજ: કુમાર/કન્યા × ૪ કેટેગરી, દૈનિક','એ જ તારીજ + સરેરાશ હાજરી + માસિક %'],['"તારીજ દૈનિક" શીટ ખાલી – જાતે ભરવી પડે','દૈનિક તારીજ હાજરી પરથી આપોઆપ, MDM સાથે'],['પેજ સેટઅપ ન હોવાથી ~૫૯ પાનાં છપાય','A4 આડું, Fit to width – દરેક વર્ગ ૧–૨ પાનાંમાં']].map(r=>`<tr><td>❌ ${r[0]}</td><td>✅ ${r[1]}</td></tr>`).join('')}</table></div></div>`};
+R.guide=()=>{const S=[['શાળાની માહિતી','"શાળા અને કેલેન્ડર" માં શાળાનું નામ, UDISE, તાલુકો, જિલ્લો ભરો. સાપ્તાહિક રજા (રવિવાર) પસંદ કરો.'],['રજા કેલેન્ડર','તહેવાર/વેકેશનની તારીખ પર ક્લિક કરી રજા નોંધો. "વેકેશન" બટનથી તારીખથી તારીખ એક સાથે.'],['શિક્ષકો','"શિક્ષકો" ટેબમાં દરેક શિક્ષક ઉમેરો.'],['વર્ગ અને વિદ્યાર્થી','"વર્ગ અને વિદ્યાર્થી" માં વર્ગ ઉમેરો, વર્ગ શિક્ષક પસંદ કરો, વિદ્યાર્થી ઉમેરો. Excel માંથી નામ કૉપી કરી "એક સાથે ઘણા ઉમેરો" માં પેસ્ટ કરી શકાય. જૂની Excel હાજરી ફાઇલ હોય તો "Excel આયાત" કરો.'],['રોજની હાજરી','"હાજરી એન્ટ્રી" માં વર્ગ પસંદ કરો → "બાકી બધા હાજર" → ગેરહાજર વિદ્યાર્થી પર ટૅપ. આખા મહિનાના પત્રકમાં ખાના પર ક્લિક કરી પણ બદલી શકાય.'],['ભૂલ ચકાસણી','"ભૂલ ચકાસણી" માં ⛔ મુદ્દા દૂર કરો. લાલ ખાના એટલે ભૂલ.'],['તારીજ અને વિજેતા','"દૈનિક જાતવારી તારીજ" અને "હાજરી વિજેતા" આપોઆપ તૈયાર થાય છે.'],['પત્રક છાપો','"રિપોર્ટ · PDF · Excel" માં પત્રક પસંદ કરો → PDF કે Excel ડાઉનલોડ કરો.'],['બેકઅપ','"થીમ અને સેટિંગ" માંથી દર અઠવાડિયે બેકઅપ ડાઉનલોડ કરો.'],['નવું વર્ષ','જૂનમાં ઉપરના વર્ષ મેનૂમાં "＋ નવું વર્ષ" પસંદ કરી પ્રમોશન કરો; નવા પ્રવેશ ઉમેરો.']];
+ $('#v-guide').innerHTML=`<div class="card"><h2>📘 વાપરવાની માર્ગદર્શિકા</h2><p class="sub">પહેલી વાર: ૧ થી ૪ એક વાર; પછી રોજ ફક્ત પગલું ૫.</p>${S.map((x,i)=>`<div class="gstep"><div class="gn">${i+1}</div><div><b>${x[0]}</b><p>${x[1]}</p></div></div>`).join('')}</div>
+ <div class="card"><h2>🔤 હાજરીના સંકેત</h2><div class="grid"><div class="feat"><div class="fi" style="background:var(--ok)">P</div><div><b>હાજર</b><small>Present</small></div></div><div class="feat"><div class="fi" style="background:var(--bad)">A</div><div><b>ગેરહાજર</b><small>Absent</small></div></div><div class="feat"><div class="fi" style="background:var(--warn)">○</div><div><b>બાકી</b><small>હજુ હાજરી નથી પુરાઈ</small></div></div><div class="feat"><div class="fi" style="background:var(--mut)">!</div><div><b>ખોટી જગ્યાએ નોંધ</b><small>રજા/પ્રવેશ પહેલાં/છોડ્યા પછી</small></div></div></div></div>
+ <div class="card"><h2>🧮 ગણતરી કેવી રીતે થાય છે?</h2><ul style="line-height:2;margin:0;padding-left:20px"><li><b>કામના દિવસ</b> = મહિનાના દિવસ − સાપ્તાહિક રજા − કેલેન્ડરની રજા (+ વિશેષ કાર્ય દિવસ)</li><li><b>વિદ્યાર્થીની હાજરી %</b> = હાજર દિવસ ÷ તેના સક્રિય કામના દિવસ × ૧૦૦</li><li><b>સરેરાશ દૈનિક હાજરી</b> = કુલ હાજરી ÷ કામના દિવસ (Excel મુજબ)</li><li><b>વિજેતા</b> = નક્કી કરેલ % (મૂળ ૧૦૦%) કે વધુ હાજરી</li></ul></div>`};
+R.faq=()=>{const Q=[['મારો ડેટા ક્યાં સચવાય છે?','ફક્ત તમારા ઉપકરણના બ્રાઉઝરમાં. ક્યાંય સર્વર પર જતો નથી. એટલે દર અઠવાડિયે બેકઅપ ડાઉનલોડ કરવો જરૂરી છે.'],['બીજા ફોન/કમ્પ્યુટરમાં કેવી રીતે વાપરું?','"થીમ અને સેટિંગ" માંથી બેકઅપ ડાઉનલોડ કરો, બીજા ઉપકરણમાં ફાઇલ ખોલી "બેકઅપ ખોલો" કરો.'],['દરેક શિક્ષક પોતાના વર્ગની હાજરી ભરે તો?','દરેક શિક્ષક આ જ ફાઇલમાં પોતાનો વર્ગ ભરી બેકઅપ મોકલી શકે; અથવા એક ઉપકરણ પર આચાર્ય/એક શિક્ષક સમગ્ર શાળા ભરે તે સૌથી સરળ છે.'],['જૂની Excel ફાઇલ ચાલશે?','હા. "Excel આયાત" થી તમારી હાજરી ફાઇલ (દરેક ધોરણની શીટ, ૮મી લાઇનથી વિદ્યાર્થી) સીધી આયાત થાય છે.'],['વિદ્યાર્થી મહિનાની વચ્ચે દાખલ થાય/છોડે તો?','પ્રવેશ તારીખ અથવા શાળા છોડ્યા તારીખ લખો. એ પહેલાં/પછીના દિવસ આપોઆપ બંધ થશે અને % સાચા ગણાશે.'],['રવિવારે શાળા ચાલુ રહી તો?','કેલેન્ડરમાં તે તારીખ પર ક્લિક કરી "કાર્ય દિવસ તરીકે" પસંદ કરો.'],['Excel માં ગુજરાતી બરાબર દેખાશે?','હા. Excel માં "Shruti" ગુજરાતી ફૉન્ટ વપરાય છે, જે Windows માં હોય છે. પેજ A4, Fit to width સેટ છે.'],['PDF કેમ નથી બનતી?','પહેલી વાર PDF/Excel માટે ઇન્ટરનેટ જરૂરી છે. ફાઇલ Chrome માં ખોલો (વોટ્સએપની અંદરથી નહીં).'],['ઇન્ટરનેટ વગર ચાલશે?','હાજરી ભરવી, ગણતરી અને પ્રિવ્યૂ ઇન્ટરનેટ વગર ચાલે છે; ફક્ત PDF/Excel બનાવવા પહેલી વાર ઇન્ટરનેટ જોઈએ.'],['મદદ ક્યાંથી મળે?','Helpline/WhatsApp 9722222606, અથવા અમારા વોટ્સએપ ગ્રુપમાં.']];
+ $('#v-faq').innerHTML=`<div class="card"><h2>❓ વારંવાર પૂછાતા પ્રશ્નો</h2>${Q.map(q=>`<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('')}</div>`};
+R.brand=()=>{$('#v-brand').innerHTML=`<div class="card hero" style="padding:34px"><div class="brandhero"><svg class="logo" width="130" height="130" viewBox="0 0 100 100" style="position:relative;z-index:1"><defs><linearGradient id="lg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ffd36b"/></linearGradient></defs><circle class="orb" cx="50" cy="50" r="46" fill="none" stroke="url(#lg3)" stroke-width="3.5" stroke-dasharray="210 80" stroke-linecap="round"/><rect x="16" y="16" width="68" height="68" rx="20" fill="#ffffff1c" stroke="#ffffff40"/><text x="50" y="63" text-anchor="middle" font-family="Baloo Bhai 2,Arial" font-size="36" font-weight="800" fill="#fff">E<tspan fill="#ff8a1f">T</tspan></text></svg>
+ <div style="flex:1;min-width:240px;position:relative;z-index:1"><h2>Easy<span style="color:var(--acc)">Tech</span>™</h2><p style="margin:4px 0 8px;font-size:17px;opacity:.95">Smart Digital Tools for Teachers · <b>Fast · Simple · Reliable</b></p><p style="margin:0;opacity:.85">ગુજરાતના શિક્ષકોનું કાગળકામ સરળ, ઝડપી અને ભૂલ-રહિત બનાવવાનું મિશન. Founder & Developer: <b>Shaikh Sakilahemad</b>.</p>
+ <div class="stats3"><div><b>૧૦૦%</b><small>મફત ટૂલ્સ</small></div><div><b>૨</b><small>વોટ્સએપ ગ્રુપ</small></div><div><b>૧</b><small>વોટ્સએપ ચેનલ</small></div><div><b>🔒</b><small>ડેટા તમારા ઉપકરણમાં</small></div></div></div></div></div>
+ <div class="contact">
+  <div class="cc" style="background:linear-gradient(135deg,#ff8a1f,#e2541c)"><b>📞 હેલ્પલાઇન</b><small>9722222606</small><br><a class="btn sm" href="tel:9722222606">કૉલ કરો</a></div>
+  <div class="cc" style="background:linear-gradient(135deg,#1faa55,#0d7a3b)"><b>💬 વોટ્સએપ ચેટ</b><small>પ્રશ્ન કે સૂચન મોકલો</small><br><a class="btn sm" href="https://wa.me/919722222606?text=Hello%20EasyTech" target="_blank" rel="noopener">ચેટ ખોલો</a></div>
+  <div class="cc" style="background:linear-gradient(135deg,#2f5bd6,#173a8f)"><b>👥 વોટ્સએપ ગ્રુપ ૧</b><small>શિક્ષકોનો પરિવાર</small><br><a class="btn sm" href="https://chat.whatsapp.com/FZJ5okkp7KQKSOfwgC1XjX?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">જોડાઓ</a></div>
+  <div class="cc" style="background:linear-gradient(135deg,#0e7490,#0b4f6c)"><b>👥 વોટ્સએપ ગ્રુપ ૨</b><small>નવું ગ્રુપ – જોડાઓ</small><br><a class="btn sm" href="https://chat.whatsapp.com/Em0YM707Th04YVPpsZynmp?s=cl&p=a&iam=2" target="_blank" rel="noopener">જોડાઓ</a></div>
+  <div class="cc" style="background:linear-gradient(135deg,#7b3fe4,#4a1c9c)"><b>📢 વોટ્સએપ ચેનલ</b><small>નવા ટૂલ્સ સૌથી પહેલાં</small><br><a class="btn sm" href="https://whatsapp.com/channel/0029Va8stPs1XqubCFWCMx47" target="_blank" rel="noopener">ફૉલો કરો</a></div></div>
+ <div class="card" style="margin-top:18px"><h2>🧰 EasyTech™ ટૂલ પરિવાર</h2><div class="grid">${[['✅','હાજરી પત્રક','આ ટૂલ'],['📋','Teacher PAR (ACR)','PAR મૂળભૂત માહિતી'],['📘','GPF પ્રવેશ અરજી','ફોર્મ ૧, ૩, નિયુક્તિ'],['📊','રોસ્ટર રજિસ્ટર','પરિશિષ્ટ-અ/બ, આપોઆપ રોસ્ટર']].map(x=>`<div class="feat"><div class="fi">${x[0]}</div><div><b>${x[1]}</b><small>${x[2]}</small></div></div>`).join('')}</div></div>`};
+
+/* ================= INIT ================= */
+applyTheme();go('dash');setTimeout(()=>$('#splash').classList.add('hide'),1100);
+addEventListener('resize',()=>{if(cur=='rep')render()});
+</script></body></html>
